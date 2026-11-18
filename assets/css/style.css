@@ -124,10 +124,10 @@ html[data-lang="de"] .de{display:inline !important}
 
 .poster{position:relative;padding:calc(var(--nav-h) + clamp(24px,4vw,48px)) 0 0}
 .poster-head{
-  display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(14px,3vw,40px);
+  display:flex;align-items:flex-start;justify-content:center;gap:clamp(14px,3vw,40px);
 }
 .poster-name{
-  display:flex;align-items:baseline;gap:clamp(9px,1.5vw,16px);
+  display:flex;align-items:baseline;justify-content:center;gap:clamp(9px,1.5vw,16px);
   margin:0;
 }
 .poster-name-text{
@@ -141,25 +141,19 @@ html[data-lang="de"] .de{display:inline !important}
 }
 
 .poster-title{
-  margin:clamp(10px,1.8vw,24px) 0 0;
-  font-family:var(--cond);font-weight:800;
-  font-size:clamp(1.55rem,8.8vw,7.4rem);
-  line-height:.86;letter-spacing:.005em;text-transform:uppercase;
-  white-space:nowrap;color:#0b0b0b;
+  margin:clamp(12px,2vw,24px) 0 0;
+  text-align:center;
 }
-.poster-title .ep{font-size:.56em;letter-spacing:.05em;font-weight:600}
+.poster-title-img{display:block;width:100%;height:auto;margin:0 auto}
 
 .poster-body{
-  display:grid;
-  grid-template-columns:minmax(0,1fr) minmax(280px,34%);
-  gap:clamp(22px,4vw,60px);
-  align-items:start;
-  margin-top:clamp(20px,3vw,40px);
+  display:flex;flex-direction:column;align-items:center;
+  gap:clamp(26px,4.4vw,48px);
+  margin-top:clamp(22px,3vw,40px);
 }
 .poster-foot{
-  display:flex;flex-direction:column;align-items:flex-start;
-  gap:clamp(14px,2.2vw,22px);
-  padding-top:2px;
+  display:flex;flex-direction:column;align-items:center;text-align:center;
+  gap:clamp(14px,2.2vw,20px);
 }
 .poster-date{
   font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--muted);
@@ -182,7 +176,7 @@ html[data-lang="de"] .de{display:inline !important}
 }
 .stamp--left{position:absolute;left:calc(var(--pad) - 34px);top:clamp(40px,8vw,90px)}
 
-.hero-cut{margin:0}
+.hero-cut{margin:0;width:min(100%,430px)}
 .hero-media{
   position:relative;aspect-ratio:3/4;overflow:hidden;
   background:#dcd8cf;
@@ -197,7 +191,7 @@ html[data-lang="de"] .de{display:inline !important}
   object-position:var(--pos,50% 50%);
   filter:brightness(var(--bright,1)) saturate(.98);
 }
-.hero-caption{display:flex;align-items:center;gap:14px;margin-top:10px}
+.hero-caption{display:flex;align-items:center;justify-content:center;gap:14px;margin-top:10px}
 .hero-arrow{
   font-family:var(--sans);font-size:15px;line-height:1;
   padding:0 2px;cursor:pointer;color:var(--ink);
@@ -256,7 +250,7 @@ html[data-lang="jp"] .bio{
 }
 .credits{
   margin:0;
-  max-width:26ch;
+  max-width:32ch;text-align:center;
   font-family:var(--cond);font-weight:600;
   font-size:clamp(1.1rem,1.9vw,1.5rem);line-height:1.28;letter-spacing:.04em;
   text-transform:uppercase;color:var(--ink);
