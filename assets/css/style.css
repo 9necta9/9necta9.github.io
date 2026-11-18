@@ -348,22 +348,6 @@ html[data-lang="kr"] .en{display:none !important}
   margin:12px 0 0;font-size:11px;line-height:1.65;color:var(--muted);max-width:36ch;
 }
 
-/* hero streaming links */
-.hero-listen{
-  list-style:none;margin:clamp(18px,3vw,26px) 0 0;padding:0;
-  display:flex;flex-wrap:wrap;gap:10px;
-}
-.hero-listen a{
-  display:inline-flex;align-items:center;gap:9px;
-  padding:9px 15px;border-radius:99px;
-  border:1px solid rgba(232,228,222,.32);
-  background:rgba(19,22,23,.34);
-  -webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);
-  font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--fg);
-  transition:background .28s ease,color .28s ease,border-color .28s ease;
-}
-.hero-listen a:hover,.hero-listen a:focus-visible{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-
 /* ---------- 02 music & videos ---------- */
 .player{
   position:relative;aspect-ratio:16/9;background:#101314;
