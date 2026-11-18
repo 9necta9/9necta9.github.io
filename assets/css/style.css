@@ -148,10 +148,10 @@ html[data-lang="kr"] .en{display:none !important}
   gap:clamp(24px,4vw,64px);
   align-items:stretch;
 }
-.hero-text{display:flex;flex-direction:column;justify-content:space-between;gap:clamp(22px,4vw,44px)}
+.hero-text{display:flex;flex-direction:column;justify-content:flex-end;gap:clamp(12px,1.6vw,18px)}
 
 .eyebrow{
-  margin:0 0 clamp(14px,2vw,22px);
+  margin:0 0 auto;
   font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);
 }
