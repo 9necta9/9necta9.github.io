@@ -445,7 +445,7 @@ html[data-lang="kr"] .about-body .lede{
   font-size:clamp(.92rem,1.2vw,.98rem);line-height:1.8;
 }
 .prs-lead em{font-style:normal;font-family:var(--cond);font-weight:600;letter-spacing:.03em;text-transform:uppercase}
-.prs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.prs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,24px);max-width:760px}
 .prs-item{margin:0}
 .prs-item img{
   width:100%;aspect-ratio:1/1;object-fit:cover;
