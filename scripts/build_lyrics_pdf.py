@@ -213,7 +213,7 @@ def new_page(song_label="", page_no=None):
     img = Image.new('RGB', (W, H), PAPER)
     d = ImageDraw.Draw(img)
     # running header
-    d.text((ML, MT), "NECTA — GOTTA FIX MY BANGS (EP) / LYRICS", font=mono(19), fill=MUTED)
+    d.text((ML, MT), "NECTA — GOTTA FIX MY BANGS (EP) / LYRICS & CREDITS", font=mono(19), fill=MUTED)
     d.line([(ML, MT+42), (W-MR, MT+42)], fill=(11,11,11), width=2)
     pages.append([img, d])
 
@@ -232,7 +232,7 @@ d.text((ML, y), "GOTTA FIX MY BANGS", font=serif(112), fill=INK)
 y += 130
 d.text((ML, y), "(EP)", font=serif(72), fill=INK)
 y += 150
-d.text((ML, y), "LYRICS", font=mono(34), fill=INK)
+d.text((ML, y), "LYRICS & CREDITS", font=mono(30), fill=INK)
 y += 120
 d.line([(ML, y), (ML+280, y)], fill=INK, width=3)
 y += 60
@@ -334,7 +334,7 @@ for num, title, text in SONGS:
     page_no += 1
 
 imgs = [p[0] for p in pages]
-out = '/workspace/.deploy-clone/assets/NECTA-GOTTA-FIX-MY-BANGS-LYRICS.pdf'
+out = '/workspace/.deploy-clone/assets/NECTA-GOTTA-FIX-MY-BANGS-LYRICS-AND-CREDITS.pdf'
 imgs[0].save(out, "PDF", resolution=200, save_all=True, append_images=imgs[1:])
 imgs[0].save('/workspace/tool-results/lyrics-page1.png')
 imgs[1].save('/workspace/tool-results/lyrics-page2.png')
