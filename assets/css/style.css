@@ -12,6 +12,8 @@
   --line:rgba(188,186,183,.14);
   --line-soft:rgba(188,186,183,.08);
   --accent:#c86e5d;
+  --cta:#a4331d;
+  --cta-hover:#c45a47;
   --accent-soft:#a17161;
   --plum:#3b353d;
   --stone:#757a77;
@@ -268,11 +270,13 @@ html[data-lang="kr"] .en{display:none !important}
 .btn{
   display:flex;align-items:center;justify-content:space-between;gap:14px;
   width:100%;padding:16px 18px;
-  border:1px solid var(--fg);
+  border:1px solid var(--cta);
+  background:var(--cta);color:var(--fg);
   font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
-  transition:background .3s ease,color .3s ease;
+  transition:background .3s ease,border-color .3s ease,color .3s ease;
 }
-.btn:hover,.btn:focus-visible{background:var(--fg);color:var(--bg)}
+/* private pre-stream: red sampled from the dress in the hero photograph */
+.btn:hover,.btn:focus-visible{background:var(--cta-hover);border-color:var(--cta-hover);color:#fff}
 .btn-arrow{font-size:14px;line-height:1}
 .micro{
   margin:12px 0 0;font-size:11px;line-height:1.65;color:var(--muted);max-width:36ch;
@@ -338,11 +342,13 @@ html[data-lang="kr"] .en{display:none !important}
 .btn{
   display:flex;align-items:center;justify-content:space-between;gap:14px;
   width:100%;padding:16px 18px;
-  border:1px solid var(--fg);
+  border:1px solid var(--cta);
+  background:var(--cta);color:var(--fg);
   font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
-  transition:background .3s ease,color .3s ease;
+  transition:background .3s ease,border-color .3s ease,color .3s ease;
 }
-.btn:hover,.btn:focus-visible{background:var(--fg);color:var(--bg)}
+/* private pre-stream: red sampled from the dress in the hero photograph */
+.btn:hover,.btn:focus-visible{background:var(--cta-hover);border-color:var(--cta-hover);color:#fff}
 .btn-arrow{font-size:14px;line-height:1}
 .micro{
   margin:12px 0 0;font-size:11px;line-height:1.65;color:var(--muted);max-width:36ch;
