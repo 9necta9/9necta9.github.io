@@ -10,9 +10,12 @@
   /* ---------- language ---------- */
   var langBtns = document.querySelectorAll('[data-set-lang]');
 
+  var LANGS = { en: 'en', kr: 'ko', es: 'es', jp: 'ja', de: 'de' };
+
   function setLang(lang) {
+    if (!LANGS[lang]) lang = 'en';
     root.setAttribute('data-lang', lang);
-    root.setAttribute('lang', lang === 'kr' ? 'ko' : 'en');
+    root.setAttribute('lang', LANGS[lang]);
     langBtns.forEach(function (b) {
       var on = b.getAttribute('data-set-lang') === lang;
       b.classList.toggle('is-active', on);
@@ -27,7 +30,7 @@
 
   try {
     var saved = localStorage.getItem('necta-lang');
-    if (saved === 'kr' || saved === 'en') setLang(saved);
+    if (saved && LANGS[saved]) setLang(saved);
   } catch (e) {}
 
   /* ---------- hero photo slideshow ---------- */

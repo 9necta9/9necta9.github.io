@@ -17,33 +17,34 @@
 <link rel="apple-touch-icon" href="assets/photos/og-sq.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=28">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=30">
 </head>
 <body>
 
-<a class="skip" href="#main"><span class="en">Skip to content</span><span class="kr">본문으로</span></a>
+<a class="skip" href="#main"><span class="en">Skip to content</span><span class="kr">본문으로</span><span class="es">Ir al contenido</span><span class="jp">本文へ</span><span class="de">Zum Inhalt</span></a>
 
 <header class="nav" id="siteNav">
-  <a class="brand" href="#top" aria-label="NECTA — top">NECTA</a>
-  <span class="nav-place"><span class="en">Seoul, KR</span><span class="kr">서울, KR</span></span>
-
-  <div class="nav-right">
-    <div class="lang" role="group" aria-label="Language / 언어">
-      <button type="button" data-set-lang="en" class="is-active" aria-pressed="true">EN</button>
-      <span class="lang-sep" aria-hidden="true">/</span>
-      <button type="button" data-set-lang="kr" aria-pressed="false">KR</button>
-    </div>
-    <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
-      <span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span>
-    </button>
+  <div class="lang" role="group" aria-label="Language / 언어 / Idioma / 言語 / Sprache">
+    <button type="button" data-set-lang="en" class="is-active" aria-pressed="true">EN</button>
+    <span class="lang-sep" aria-hidden="true">/</span>
+    <button type="button" data-set-lang="kr" aria-pressed="false">KR</button>
+    <span class="lang-sep" aria-hidden="true">/</span>
+    <button type="button" data-set-lang="es" aria-pressed="false">ES</button>
+    <span class="lang-sep" aria-hidden="true">/</span>
+    <button type="button" data-set-lang="jp" aria-pressed="false">JP</button>
+    <span class="lang-sep" aria-hidden="true">/</span>
+    <button type="button" data-set-lang="de" aria-pressed="false">DE</button>
   </div>
+  <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="navLinks" aria-label="Menu">
+    <span class="menu-ico" aria-hidden="true"><i></i><i></i><i></i></span>
+  </button>
 
   <nav class="nav-links" id="navLinks" aria-label="Index">
-    <a href="#release"><span class="en">Release</span><span class="kr">발매</span></a>
-    <a href="#about"><span class="en">About</span><span class="kr">소개</span></a>
-    <a href="#photos"><span class="en">Press photos</span><span class="kr">프레스 사진</span></a>
-    <a href="#contact"><span class="en">Contact</span><span class="kr">연락</span></a>
+    <a href="#release"><span class="en">Release</span><span class="kr">발매</span><span class="es">Lanzamiento</span><span class="jp">リリース</span><span class="de">Veröffentlichung</span></a>
+    <a href="#about"><span class="en">About</span><span class="kr">소개</span><span class="es">Biografía</span><span class="jp">プロフィール</span><span class="de">Über</span></a>
+    <a href="#photos"><span class="en">Press photos</span><span class="kr">프레스 사진</span><span class="es">Fotos de prensa</span><span class="jp">プレス写真</span><span class="de">Pressefotos</span></a>
+    <a href="#contact"><span class="en">Contact</span><span class="kr">연락</span><span class="es">Contacto</span><span class="jp">お問い合わせ</span><span class="de">Kontakt</span></a>
   </nav>
 </header>
 
@@ -57,11 +58,17 @@
         <p class="eyebrow">
           <span class="en">Seoul, KR</span>
           <span class="kr">서울</span>
+          <span class="es">Seúl, KR</span>
+          <span class="jp">ソウル</span>
+          <span class="de">Seoul, KR</span>
         </p>
         <h1 class="hero-name">NECTA</h1>
         <p class="hero-sub">
           <span class="en">Electronica singer-songwriter</span>
           <span class="kr">일렉트로니카 싱어송라이터</span>
+          <span class="es">Cantautora de electrónica</span>
+          <span class="jp">エレクトロニカ・シンガーソングライター</span>
+          <span class="de">Elektronische Singer-Songwriterin</span>
         </p>
       </div>
 
@@ -103,7 +110,7 @@
             <button type="button" aria-label="Photo 5"></button>
             <button type="button" aria-label="Photo 6"></button>
           </div>
-          <a class="hero-scroll" href="#release"><span class="en">Scroll</span><span class="kr">스크롤</span><span class="arrow">↓</span></a>
+          <a class="hero-scroll" href="#release"><span class="en">Scroll</span><span class="kr">스크롤</span><span class="es">Desplazar</span><span class="jp">スクロール</span><span class="de">Scrollen</span><span class="arrow">↓</span></a>
         </figcaption>
       </figure>
 
@@ -114,52 +121,87 @@
   <section class="sec" id="release">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title"><span class="en">Release</span><span class="kr">발매</span></h2>
+        <h2 class="sec-title"><span class="en">Release</span><span class="kr">발매</span><span class="es">Lanzamiento</span><span class="jp">リリース</span><span class="de">Veröffentlichung</span></h2>
       </div>
 
       <div class="release">
         <div class="release-main">
-          <p class="kicker"><span class="en">2027.01.22 · 6-track EP (Upcoming release)</span><span class="kr">2027.01.22 · 6트랙 EP (발매 예정)</span></p>
+          <p class="kicker">
+            <span class="en">2027.01.22 · 6-track EP (Upcoming release)</span>
+            <span class="kr">2027.01.22 · 6트랙 EP (발매 예정)</span>
+            <span class="es">2027.01.22 · EP de 6 canciones (Próximo lanzamiento)</span>
+            <span class="jp">2027.01.22 · 6曲入りEP（リリース予定）</span>
+            <span class="de">2027.01.22 · 6-Track-EP (Erscheint demnächst)</span>
+          </p>
           <h3 class="release-title">GOTTA FIX<br>MY BANGS</h3>
           <p class="release-blurb">
             <span class="en">Six tracks of club-facing electronic pop — sharp, physical, and funny in the right places. Written and sung by NECTA, produced with her collaborators.</span>
             <span class="kr">클럽을 향한 일렉트로닉 팝 6곡. 날카롭고, 몸으로 느껴지고, 제자리에서 웃음이 나는 지점까지 정확한 노래들. NECTA가 쓰고 부르고, 프로듀서들과 함께 만들었습니다.</span>
+            <span class="es">Seis canciones de pop electrónico de pista — afiladas, físicas y divertidas donde toca. Escritas y cantadas por NECTA, producidas junto a sus colaboradores.</span>
+            <span class="jp">クラブへ向けたエレクトロニック・ポップ6曲。鋭く、身体に響き、ここぞというところで笑いがこぼれる。NECTAが書き、歌い、プロデューサーたちとともに制作した。</span>
+            <span class="de">Sechs Stücke cluborientierter Elektronik-Pop — scharf, körperlich und an den richtigen Stellen komisch. Geschrieben und gesungen von NECTA, produziert zusammen mit ihren Produzenten.</span>
           </p>
         </div>
 
         <div class="release-side">
           <a class="btn" href="https://untitled.stream/library/project/j7m8F0AWkzMgy7WEEkWq7" target="_blank" rel="noopener">
-            <span class="en">Private pre-stream</span><span class="kr">비공개 사전 스트리밍</span>
+            <span class="en">Private pre-stream</span>
+            <span class="kr">비공개 사전 스트리밍</span>
+            <span class="es">Pre-escucha privada</span>
+            <span class="jp">非公開プレ・ストリーミング</span>
+            <span class="de">Privater Pre-Stream</span>
             <span class="btn-arrow" aria-hidden="true">↗</span>
           </a>
           <p class="micro">
             <span class="en">Private link — for press, radio &amp; industry. Please do not share publicly.</span>
             <span class="kr">비공개 링크입니다. 언론·라디오·업계 관계자용이며 외부 공유는 삼가주세요.</span>
+            <span class="es">Enlace privado — para prensa, radio e industria. Por favor, no lo compartas públicamente.</span>
+            <span class="jp">非公開リンクです。プレス・ラジオ・業界関係者向け。公開での共有はご遠慮ください。</span>
+            <span class="de">Privater Link — für Presse, Radio und Industrie. Bitte nicht öffentlich teilen.</span>
           </p>
         </div>
       </div>
 
       <div class="prs">
         <div class="prs-head">
-          <span class="en">Pre-release singles</span><span class="kr">프리 릴리즈 싱글</span>
+          <span class="en">Pre-release singles</span>
+          <span class="kr">프리 릴리즈 싱글</span>
+          <span class="es">Singles de adelanto</span>
+          <span class="jp">プレ・リリース・シングル</span>
+          <span class="de">Vorab-Singles</span>
         </div>
         <p class="prs-lead">
           <span class="en">Two pre-release singles leading into the EP — <em>HIGH LIFE</em> (out now) and the title track <em>GOTTA FIX MY BANGS</em> (coming soon).</span>
           <span class="kr">EP 발매에 앞서 공개되는 두 개의 프리 릴리즈 싱글 — <em>HIGH LIFE</em>(발매)와 <em>GOTTA FIX MY BANGS</em>(발매 예정).</span>
+          <span class="es">Dos singles de adelanto antes del EP — <em>HIGH LIFE</em> (ya disponible) y el tema principal <em>GOTTA FIX MY BANGS</em> (próximamente).</span>
+          <span class="jp">EPに先駆けて公開される2枚のプレ・リリース・シングル — <em>HIGH LIFE</em>（配信中）とタイトル曲 <em>GOTTA FIX MY BANGS</em>（近日公開）。</span>
+          <span class="de">Zwei Vorab-Singles zum EP — <em>HIGH LIFE</em> (jetzt draußen) und der Titeltrack <em>GOTTA FIX MY BANGS</em> (bald).</span>
         </p>
         <div class="prs-grid">
           <figure class="prs-item">
             <img src="assets/covers/high-life.jpg" alt="HIGH LIFE — single cover art" loading="lazy">
             <figcaption>
               <span class="prs-title">HIGH LIFE</span>
-              <span class="prs-meta"><span class="en">Pre-release single · Out now</span><span class="kr">프리 릴리즈 싱글 · 발매</span></span>
+              <span class="prs-meta">
+                <span class="en">Pre-release single · Out now</span>
+                <span class="kr">프리 릴리즈 싱글 · 발매</span>
+                <span class="es">Single de adelanto · Ya disponible</span>
+                <span class="jp">プレ・リリース・シングル · 配信中</span>
+                <span class="de">Vorab-Single · Jetzt erhältlich</span>
+              </span>
             </figcaption>
           </figure>
           <figure class="prs-item">
             <img src="assets/covers/gotta-fix-my-bangs.jpg" alt="GOTTA FIX MY BANGS — single cover art" loading="lazy">
             <figcaption>
               <span class="prs-title">GOTTA FIX MY BANGS</span>
-              <span class="prs-meta"><span class="en">Pre-release single · Upcoming</span><span class="kr">프리 릴리즈 싱글 · 발매 예정</span></span>
+              <span class="prs-meta">
+                <span class="en">Pre-release single · Upcoming</span>
+                <span class="kr">프리 릴리즈 싱글 · 발매 예정</span>
+                <span class="es">Single de adelanto · Próximamente</span>
+                <span class="jp">プレ・リリース・シングル · 近日公開</span>
+                <span class="de">Vorab-Single · Erscheint bald</span>
+              </span>
             </figcaption>
           </figure>
         </div>
@@ -171,16 +213,25 @@
   <section class="sec" id="about">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title"><span class="en">About</span><span class="kr">소개</span></h2>
+        <h2 class="sec-title"><span class="en">About</span><span class="kr">소개</span><span class="es">Biografía</span><span class="jp">プロフィール</span><span class="de">Über</span></h2>
       </div>
 
       <div class="about-body">
         <p class="lede">
           <span class="en">NECTA is the project of Seoul-based electronica singer-songwriter Seongmin Lim. She writes the toplines and the lyrics and sings them; the tracks are built with producers. Her 2026 album <em>Seoul Bizarre</em> and its singles brought disruption and wit to the Korean electronic scene, and the new EP takes that instinct further into the room.</span>
           <span class="kr">NECTA(넥타)는 서울을 기반으로 활동하는 일렉트로니카 싱어송라이터 임성민의 프로젝트다. 탑라인과 가사를 직접 쓰고 노래하며, 트랙은 프로듀서들과 함께 만든다. 2026년 앨범 『Seoul Bizarre』와 싱글들은 국내 일렉트로닉 씬에 파격과 재치를 환기시켰고, 새 EP는 그 감각을 한 걸음 더 방 안쪽으로 밀어붙인다.</span>
+          <span class="es">NECTA es el proyecto de Seongmin Lim, cantautora de electrónica radicada en Seúl. Escribe las toplines y las letras, y las canta; las pistas se construyen junto a productores. Su álbum de 2026 <em>Seoul Bizarre</em> y sus sencillos llevaron disrupción e ingenio a la escena electrónica coreana, y el nuevo EP empuja ese instinto más adentro de la sala.</span>
+          <span class="jp">NECTAは、ソウルを拠点に活動するエレクトロニカ・シンガーソングライター、イム・ソンミンのプロジェクト。トップラインと歌詞を自ら書き、歌う。トラックはプロデューサーたちと共に制作している。2026年のアルバム『Seoul Bizarre』とそのシングルは、韓国のエレクトロニック・シーンに破壊と機知をもたらした。新しいEPは、その感覚をさらに部屋の奥へと押し進める。</span>
+          <span class="de">NECTA ist das Projekt der in Seoul lebenden elektronischen Singer-Songwriterin Seongmin Lim. Sie schreibt die Toplines und die Texte und singt sie; die Tracks entstehen mit Produzenten. Ihr Album <em>Seoul Bizarre</em> (2026) und seine Singles brachten Störung und Witz in die koreanische Elektronikszene — die neue EP treibt dieses Gespür weiter in den Raum hinein.</span>
         </p>
 
-        <p class="history">2026 Apple Music ‘Up Next’ <span class="sep">·</span> 2026 Korean Music Awards Nominee — <em>Seoul Bizarre</em>, <em>Lady Love</em></p>
+        <p class="history">
+          <span class="en">2026 Apple Music ‘Up Next’ <span class="sep">·</span> 2026 Korean Music Awards Nominee — <em>Seoul Bizarre</em>, <em>Lady Love</em></span>
+          <span class="kr">2026 Apple Music ‘Up Next’ <span class="sep">·</span> 2026 한국대중음악상 후보 — <em>Seoul Bizarre</em>, <em>Lady Love</em></span>
+          <span class="es">2026 Apple Music «Up Next» <span class="sep">·</span> Nominada a los Korean Music Awards 2026 — <em>Seoul Bizarre</em>, <em>Lady Love</em></span>
+          <span class="jp">2026 Apple Music「Up Next」<span class="sep">·</span> 2026 韓国大衆音楽賞 ノミネート — <em>Seoul Bizarre</em>, <em>Lady Love</em></span>
+          <span class="de">2026 Apple Music „Up Next“ <span class="sep">·</span> 2026 Korean Music Awards nominiert — <em>Seoul Bizarre</em>, <em>Lady Love</em></span>
+        </p>
 
         <ul class="listen-row">
           <li><a href="https://open.spotify.com/artist/41aotofRYK9RvrKFk5ZY5U" target="_blank" rel="noopener"><span>Spotify</span><span aria-hidden="true">↗</span></a></li>
@@ -194,17 +245,19 @@
   <section class="sec" id="photos">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title"><span class="en">Press photos</span><span class="kr">프레스 사진</span></h2>
+        <h2 class="sec-title"><span class="en">Press photos</span><span class="kr">프레스 사진</span><span class="es">Fotos de prensa</span><span class="jp">プレス写真</span><span class="de">Pressefotos</span></h2>
       </div>
 
       <a class="dl-big" href="assets/NECTA-Press-Photos.zip" download="NECTA-Press-Photos.zip">
         <span class="dl-label">
           <span class="en">Download press photos (6 hi-res · ZIP)</span>
           <span class="kr">프레스 사진 다운로드 (고화질 6장 · ZIP)</span>
+          <span class="es">Descargar fotos de prensa (6 alta resolución · ZIP)</span>
+          <span class="jp">プレス写真をダウンロード（高解像度6点 · ZIP）</span>
+          <span class="de">Pressefotos herunterladen (6 hochauflösend · ZIP)</span>
         </span>
         <span class="dl-arrow" aria-hidden="true">↓</span>
       </a>
-
     </div>
   </section>
 
@@ -212,7 +265,7 @@
   <section class="sec" id="contact">
     <div class="wrap">
       <div class="sec-head">
-        <h2 class="sec-title"><span class="en">Contact</span><span class="kr">연락</span></h2>
+        <h2 class="sec-title"><span class="en">Contact</span><span class="kr">연락</span><span class="es">Contacto</span><span class="jp">お問い合わせ</span><span class="de">Kontakt</span></h2>
       </div>
 
       <div class="contact-body">
@@ -230,8 +283,17 @@
 <footer class="foot">
   <div class="foot-inner">
     <span class="foot-name">NECTA</span>
-    <span class="foot-meta">© 2026 NECTA <span class="foot-dash">—</span> <span class="en">All rights reserved</span><span class="kr">모든 권리 보유</span></span>
-    <a class="foot-top" href="#top"><span class="en">Back to top</span><span class="kr">맨 위로</span> <span aria-hidden="true">↑</span></a>
+    <span class="foot-meta">© 2026 NECTA <span class="foot-dash">—</span>
+      <span class="en">All rights reserved</span>
+      <span class="kr">모든 권리 보유</span>
+      <span class="es">Todos los derechos reservados</span>
+      <span class="jp">無断転載を禁じます</span>
+      <span class="de">Alle Rechte vorbehalten</span>
+    </span>
+    <a class="foot-top" href="#top">
+      <span class="en">Back to top</span><span class="kr">맨 위로</span><span class="es">Volver arriba</span><span class="jp">ページ上部へ</span><span class="de">Nach oben</span>
+      <span aria-hidden="true">↑</span>
+    </a>
   </div>
 </footer>
 
@@ -246,6 +308,6 @@
   <audio id="mpAudio" src="assets/audio/gotta-fix-my-bangs.mp3" preload="metadata"></audio>
 </div>
 
-<script src="assets/js/main.js?v=28" defer></script>
+<script src="assets/js/main.js?v=30" defer></script>
 </body>
 </html>
