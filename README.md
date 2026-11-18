@@ -1,6 +1,6 @@
 # NECTA — Official EPK
 
-One-page electronic press kit for **NECTA** (Seoul-based electronic / alt-pop singer-songwriter, vocalist & visual director).
+One-page electronic press kit for **NECTA** (Seoul-based electronic / alt-pop singer-songwriter & visual director).
 
 Live: https://9necta9.github.io
 
