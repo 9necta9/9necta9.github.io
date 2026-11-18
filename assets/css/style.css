@@ -28,7 +28,7 @@ body{
   margin:0;
   padding-bottom:0;
   background-color:var(--paper);
-  background-image:url("assets/bg-pattern-necta.png");
+  background-image:url("../bg-pattern-necta.png");
   background-repeat:repeat;
   background-position:0 0;
   color:var(--ink);
@@ -307,7 +307,7 @@ html[data-lang="jp"] .bio{
    CUSTOM CURSOR (desktop, fine pointer)
    ============================================================ */
 @media (pointer:fine){
-  body{cursor:url("assets/cursor-necta-32.png") 6 2,auto}
+  body{cursor:url("../cursor-necta-32.png") 6 2,auto}
   body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}
 }
 .cursor{
