@@ -215,7 +215,7 @@ html[data-lang="de"] .de{display:inline !important}
    ============================================================ */
 .info{padding:clamp(60px,9vw,120px) 0 clamp(40px,6vw,70px);text-align:center}
 .bio{
-  margin:0 auto;max-width:60ch;
+  margin:clamp(26px,4vw,44px) auto 0;max-width:52ch;
   font-family:var(--serif);font-weight:400;
   font-size:clamp(1.12rem,2.1vw,1.5rem);
   line-height:1.5;
