@@ -201,7 +201,11 @@ you can not sit with me
 
 Bitch you ain't got shit on me
 Bitch you ain't got shit on me"""),
+ ("05", "BRATTY TEEN DAUGHTER", ""),
 ]
+
+CREDITS = ["Composed by Lemac, NECTA","Lyrics by NECTA","Arranged by Lemac",
+           "synth, drum, perc, bass by Lemac","Mixed by Lemac, omnostereo","Mastered by omnostereo"]
 
 pages = []
 
@@ -268,7 +272,7 @@ def wrap(text, font, maxw):
     return out
 
 TOP_START = MT + 100
-BOTTOM = H - MB - 30
+BOTTOM = H - MB - 250
 
 def wrap(text, font, maxw):
     if not text.strip():
@@ -318,6 +322,14 @@ for num, title, text in SONGS:
         for line in wrap(raw, body, CW):
             d.text((ML, yy), line, font=body, fill=INK)
             yy += lh
+    cy = H - MB - 210
+    d.line([(ML, cy), (W-MR, cy)], fill=(11,11,11), width=2)
+    cy += 26
+    d.text((ML, cy), "CREDITS", font=mono(17), fill=MUTED)
+    cy += 34
+    for line in CREDITS:
+        d.text((ML, cy), line, font=mono(21), fill=INK)
+        cy += 31
     footer(page_no)
     page_no += 1
 
@@ -327,4 +339,5 @@ imgs[0].save(out, "PDF", resolution=200, save_all=True, append_images=imgs[1:])
 imgs[0].save('/workspace/tool-results/lyrics-page1.png')
 imgs[1].save('/workspace/tool-results/lyrics-page2.png')
 imgs[2].save('/workspace/tool-results/lyrics-page3.png')
+imgs[5].save('/workspace/tool-results/lyrics-page6.png')
 print("pages", len(imgs), "size", round(os.path.getsize(out)/1024/1024,2), "MB")
