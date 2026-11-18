@@ -135,7 +135,7 @@ html[data-lang="de"] .de{display:inline !important}
 }
 
 .cover-art{
-  width:min(100%,300px);margin:clamp(20px,3vw,30px) auto 0;
+  width:min(74vw,280px);max-width:280px;margin:clamp(20px,3vw,30px) auto 0;
 }
 .cover-art img{
   display:block;
@@ -211,7 +211,7 @@ html[data-lang="de"] .de{display:inline !important}
 
 /* ---------- two small video slots ---------- */
 .vids{
-  width:min(100%,300px);
+  width:min(74vw,280px);max-width:280px;
   margin:clamp(24px,3.6vw,36px) auto 0;
   display:flex;flex-direction:column;gap:10px;
 }
@@ -240,7 +240,7 @@ html[data-lang="de"] .de{display:inline !important}
 /* ---------- 3:4 photo slideshow ---------- */
 .hero-cut{
   margin:clamp(28px,4.4vw,56px) auto 0;
-  width:min(76%,280px);
+  width:min(74vw,280px);max-width:280px;
   position:relative;
 }
 .hero-media{
@@ -319,6 +319,7 @@ html[data-lang="jp"] .bio{
 .links a{border-bottom:1px solid transparent;padding-bottom:2px;transition:border-color .25s ease,color .25s ease}
 .links a:hover{border-color:var(--ink);color:var(--muted)}
 
+.track-dl{margin-top:14px}
 .press-dl{
   margin:16px auto 0;text-align:center;
   font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
@@ -381,10 +382,10 @@ html[data-lang="jp"] .bio{
   .lang{font-size:8.5px;gap:2px}
   .lang-sep{margin:0 1px}
   .poster{padding-top:calc(var(--nav-h) + 16px)}
-  .cover-art{width:min(100%,280px);margin-top:20px}
+  .cover-art{width:min(74vw,280px);margin-top:20px}
   .poster-name-text{font-size:1.4rem}
   .poster-loc{font-size:8px}
-  .hero-cut{width:min(76%,280px)}
+  .hero-cut{width:min(74vw,280px)}
   .credits{font-size:1.02rem;max-width:30ch}
   .poster-title-img{max-width:100%}
 }
