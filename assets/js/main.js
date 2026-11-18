@@ -211,51 +211,6 @@
     });
   });
 
-  /* ---------- custom cursor (fine pointer only) ---------- */
-  if (window.matchMedia && window.matchMedia('(pointer:fine)').matches) {
-    var cursor = document.createElement('div');
-    cursor.className = 'cursor';
-    var cimg = document.createElement('img');
-    cimg.src = 'assets/cursor-necta.png';
-    cimg.alt = '';
-    cimg.setAttribute('aria-hidden', 'true');
-    cursor.appendChild(cimg);
-    document.body.appendChild(cursor);
-
-    var cx = -120, cy = -120, tx = -120, ty = -120, raf = null, live = false;
-
-    function cursorLoop() {
-      cx += (tx - cx) * 0.35;
-      cy += (ty - cy) * 0.35;
-      cursor.style.transform = 'translate3d(' + cx.toFixed(1) + 'px,' + cy.toFixed(1) + 'px,0)';
-      raf = requestAnimationFrame(cursorLoop);
-    }
-
-    window.addEventListener('mousemove', function (e) {
-      tx = e.clientX;
-      ty = e.clientY;
-      if (!live) {
-        live = true;
-        cx = tx; cy = ty;
-        cursor.style.opacity = '1';
-        document.body.classList.add('cursor-on');
-        if (!raf) cursorLoop();
-      }
-    }, { passive: true });
-
-    document.addEventListener('mouseleave', function () {
-      live = false;
-      cursor.style.opacity = '0';
-      document.body.classList.remove('cursor-on');
-      cursor.classList.remove('is-falling');
-    });
-
-    document.addEventListener('mousedown', function () { cursor.classList.add('is-falling'); });
-    document.addEventListener('mouseup', function () {
-      window.setTimeout(function () { cursor.classList.remove('is-falling'); }, 140);
-    });
-  }
-
   /* ---------- back to top with no hash jump ---------- */
   document.querySelectorAll('a[href="#top"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
