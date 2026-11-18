@@ -17,9 +17,8 @@
   <figure><figcaption>375 × 667</figcaption><iframe class="small" id="b" src="/index.html?check=1"></iframe></figure>
   <script>
     var q = location.hash ? location.hash : '';
-    if (q) {
-      document.querySelectorAll('iframe').forEach(function (f) { f.src = '/index.html?check=1' + q; });
-    }
+    var v = '?check=' + Date.now();
+    document.querySelectorAll('iframe').forEach(function (f) { f.src = '/index.html' + v + q; });
   </script>
 </body>
 </html>
