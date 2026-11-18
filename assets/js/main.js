@@ -263,13 +263,13 @@
 
   if (mp && mpAudio) {
     var mpPlayBtn = document.getElementById('mpPlay');
+    var mpLabel = document.getElementById('mpLabel');
+    var mpIco = document.getElementById('mpIco');
     var mpSeek = document.getElementById('mpSeek');
     var mpProg = document.getElementById('mpProg');
     var mpTime = document.getElementById('mpTime');
-    var mpMute = document.getElementById('mpMute');
-    var mpVol = document.getElementById('mpVol');
 
-    function mpFmt(s) {
+    function mpClock(s) {
       if (!isFinite(s) || s < 0) s = 0;
       var m = Math.floor(s / 60);
       var sec = Math.floor(s % 60);
@@ -282,12 +282,15 @@
       var pct = d ? Math.min(100, (t / d) * 100) : 0;
       mpProg.style.width = pct + '%';
       mpSeek.setAttribute('aria-valuenow', String(Math.round(pct)));
-      mpTime.textContent = mpFmt(t) + ' / ' + mpFmt(d);
+      mpTime.textContent = mpClock(t) + ' / ' + mpClock(d);
     }
 
-    function mpSetState(state) {
+    function mpState(state) {
+      var playing = state === 'playing';
       mp.setAttribute('data-state', state);
-      mpPlayBtn.setAttribute('aria-label', state === 'playing' ? 'Pause' : 'Play');
+      mpPlayBtn.setAttribute('aria-label', playing ? 'Pause' : 'Play');
+      mpLabel.textContent = playing ? 'Pause' : 'Play';
+      mpIco.textContent = playing ? '❚❚' : '▶';
     }
 
     function mpStopStageVideo() {
@@ -301,29 +304,31 @@
       if (mpAudio.paused) {
         mpStopStageVideo();
         var p = mpAudio.play();
-        if (p && p.catch) p.catch(function () { mpSetState('paused'); });
+        if (p && p.catch) p.catch(function () { mpState('paused'); });
       } else {
         mpAudio.pause();
       }
     });
 
-    mpAudio.addEventListener('play', function () { mpSetState('playing'); });
-    mpAudio.addEventListener('pause', function () { mpSetState('paused'); });
-    mpAudio.addEventListener('ended', function () { mpSetState('paused'); mpAudio.currentTime = 0; mpPaint(); });
+    mpAudio.addEventListener('play', function () { mpState('playing'); });
+    mpAudio.addEventListener('pause', function () { mpState('paused'); });
+    mpAudio.addEventListener('ended', function () {
+      mpState('paused');
+      mpAudio.currentTime = 0;
+      mpPaint();
+    });
     mpAudio.addEventListener('loadedmetadata', mpPaint);
     mpAudio.addEventListener('durationchange', mpPaint);
     mpAudio.addEventListener('timeupdate', mpPaint);
 
-    function mpSeekTo(clientX) {
+    mpSeek.addEventListener('click', function (e) {
       var r = mpSeek.getBoundingClientRect();
       var d = mpAudio.duration;
       if (!d || !r.width) return;
-      var ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      var ratio = Math.min(1, Math.max(0, (e.clientX - r.left) / r.width));
       mpAudio.currentTime = ratio * d;
       mpPaint();
-    }
-
-    mpSeek.addEventListener('click', function (e) { mpSeekTo(e.clientX); });
+    });
     mpSeek.addEventListener('keydown', function (e) {
       if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
       e.preventDefault();
@@ -331,35 +336,6 @@
       mpAudio.currentTime = Math.min(mpAudio.duration || 0, Math.max(0, (mpAudio.currentTime || 0) + step));
       mpPaint();
     });
-
-    function mpApplyMute() {
-      var muted = mpAudio.muted || mpAudio.volume === 0;
-      mpMute.setAttribute('aria-pressed', muted ? 'true' : 'false');
-      mpMute.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
-      mp.classList.toggle('is-muted', muted);
-    }
-
-    mpMute.addEventListener('click', function () {
-      if (mpAudio.muted || mpAudio.volume === 0) {
-        mpAudio.muted = false;
-        if (mpAudio.volume === 0) {
-          mpAudio.volume = 1;
-          if (mpVol) mpVol.value = 100;
-        }
-      } else {
-        mpAudio.muted = true;
-      }
-      mpApplyMute();
-    });
-
-    if (mpVol) {
-      mpVol.addEventListener('input', function () {
-        var v = Number(mpVol.value) / 100;
-        mpAudio.volume = v;
-        mpAudio.muted = v === 0;
-        mpApplyMute();
-      });
-    }
 
     /* the section video player and the bar never play over each other */
     var basePlayVideo = playVideo;
@@ -369,7 +345,7 @@
     };
 
     mpPaint();
-    mpApplyMute();
+    mpState('paused');
   }
 
   /* ---------- back to top with no hash jump ---------- */

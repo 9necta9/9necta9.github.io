@@ -17,8 +17,8 @@
 <link rel="apple-touch-icon" href="assets/photos/og-sq.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@300;400&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=17">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=18">
 </head>
 <body>
 
@@ -26,16 +26,7 @@
 
 <header class="nav" id="siteNav">
   <a class="brand" href="#top" aria-label="NECTA — top">NECTA</a>
-
-  <nav class="nav-links" id="navLinks" aria-label="Sections">
-    <a href="#music"><span class="en">Music</span><span class="kr">음악</span></a>
-    <a href="#videos"><span class="en">Videos</span><span class="kr">영상</span></a>
-    <a href="#about"><span class="en">About</span><span class="kr">소개</span></a>
-    <a href="#highlights"><span class="en">Highlights</span><span class="kr">하이라이트</span></a>
-    <a href="#press"><span class="en">Press</span><span class="kr">프레스</span></a>
-    <a href="#photos"><span class="en">Photos</span><span class="kr">사진</span></a>
-    <a href="#contact"><span class="en">Contact</span><span class="kr">연락</span></a>
-  </nav>
+  <span class="nav-place"><span class="en">Seoul, KR</span><span class="kr">서울, KR</span></span>
 
   <div class="nav-right">
     <div class="lang" role="group" aria-label="Language / 언어">
@@ -47,14 +38,39 @@
       <span class="en">Menu</span><span class="kr">메뉴</span>
     </button>
   </div>
+
+  <nav class="nav-links" id="navLinks" aria-label="Index">
+    <a href="#music"><span class="en">Music</span><span class="kr">음악</span></a>
+    <a href="#videos"><span class="en">Videos</span><span class="kr">영상</span></a>
+    <a href="#about"><span class="en">About</span><span class="kr">소개</span></a>
+    <a href="#highlights"><span class="en">Highlights</span><span class="kr">하이라이트</span></a>
+    <a href="#press"><span class="en">Press</span><span class="kr">프레스</span></a>
+    <a href="#photos"><span class="en">Photos</span><span class="kr">사진</span></a>
+    <a href="#contact"><span class="en">Contact</span><span class="kr">연락</span></a>
+  </nav>
 </header>
 
 <main id="main">
 
   <!-- HERO -->
   <section class="hero" id="top">
-    <div class="hero-media">
-      <div class="hero-track" id="heroTrack">
+    <div class="wrap hero-grid">
+
+      <div class="hero-text">
+        <p class="eyebrow">
+          <span class="en">Seoul, KR — Electronic / Alt-Pop</span>
+          <span class="kr">서울 — 일렉트로닉 / 얼트팝</span>
+        </p>
+        <h1 class="hero-name">NECTA</h1>
+        <p class="hero-sub">
+          <span class="en">Electronic artist · Visual director</span>
+          <span class="kr">일렉트로닉 아티스트 · 비주얼 디렉터</span>
+        </p>
+      </div>
+
+      <figure class="hero-cut">
+        <div class="hero-media">
+          <div class="hero-track" id="heroTrack">
         <div class="hero-slide is-active" style="--pos:50% 9%;--pos-m:54% 50%">
           <img src="assets/photos/hero-sq.jpg" srcset="assets/photos/hero-sq-1200.jpg 1200w, assets/photos/hero-sq.jpg 2000w"
                sizes="100vw" alt="NECTA in a floral wrap dress, seated on the floor of a pale studio, looking down" fetchpriority="high">
@@ -80,33 +96,20 @@
                sizes="100vw" alt="Horizontal close-up of NECTA’s face against a warm ochre wall" loading="lazy">
         </div>
       </div>
-    </div>
-
-    <div class="hero-inner">
-      <p class="eyebrow">
-        <span class="en">Seoul, KR — Electronic / Alt-Pop</span>
-        <span class="kr">서울 — 일렉트로닉 / 얼트팝</span>
-      </p>
-      <h1 class="hero-name">NECTA</h1>
-      <p class="hero-sub">
-        <span class="en">Singer-songwriter &amp; visual director</span>
-        <span class="kr">싱어송라이터 · 비주얼 디렉터</span>
-      </p>
-
-      <div class="hero-foot">
-        <div class="hero-dots" id="heroDots" aria-label="Photo slideshow">
-          <button type="button" class="is-active" aria-label="Photo 1" aria-current="true"></button>
-          <button type="button" aria-label="Photo 2"></button>
-          <button type="button" aria-label="Photo 3"></button>
-          <button type="button" aria-label="Photo 4"></button>
-          <button type="button" aria-label="Photo 5"></button>
-          <button type="button" aria-label="Photo 6"></button>
         </div>
-        <a class="hero-scroll" href="#music" aria-hidden="true" tabindex="-1">
-          <span class="en">Scroll</span><span class="kr">스크롤</span>
-          <span class="arrow">↓</span>
-        </a>
-      </div>
+        <figcaption class="hero-caption">
+          <div class="hero-dots" id="heroDots" aria-label="Photo slideshow">
+            <button type="button" class="is-active" aria-label="Photo 1" aria-current="true"></button>
+            <button type="button" aria-label="Photo 2"></button>
+            <button type="button" aria-label="Photo 3"></button>
+            <button type="button" aria-label="Photo 4"></button>
+            <button type="button" aria-label="Photo 5"></button>
+            <button type="button" aria-label="Photo 6"></button>
+          </div>
+          <a class="hero-scroll" href="#music"><span class="en">Scroll</span><span class="kr">스크롤</span><span class="arrow">↓</span></a>
+        </figcaption>
+      </figure>
+
     </div>
   </section>
 
@@ -114,7 +117,6 @@
   <section class="sec" id="music">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-no">01</span>
         <h2 class="sec-title"><span class="en">Music</span><span class="kr">음악</span></h2>
       </div>
 
@@ -158,7 +160,6 @@
   <section class="sec sec--alt" id="videos">
     <div class="wrap wrap--wide">
       <div class="sec-head">
-        <span class="sec-no">02</span>
         <h2 class="sec-title"><span class="en">Music &amp; videos</span><span class="kr">음악과 영상</span></h2>
       </div>
 
@@ -212,7 +213,6 @@
   <section class="sec" id="about">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-no">03</span>
         <h2 class="sec-title"><span class="en">About</span><span class="kr">소개</span></h2>
       </div>
 
@@ -255,7 +255,6 @@
   <section class="sec sec--alt" id="highlights">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-no">04</span>
         <h2 class="sec-title"><span class="en">Selected highlights</span><span class="kr">주요 하이라이트</span></h2>
       </div>
 
@@ -285,7 +284,6 @@
   <section class="sec" id="press">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-no">05</span>
         <h2 class="sec-title"><span class="en">Press</span><span class="kr">프레스</span></h2>
       </div>
 
@@ -320,9 +318,7 @@
   <section class="sec sec--alt" id="photos">
     <div class="wrap wrap--wide">
       <div class="sec-head">
-        <span class="sec-no">06</span>
         <h2 class="sec-title"><span class="en">Press photos</span><span class="kr">프레스 사진</span></h2>
-        <span class="sec-tag"><span class="en">6 images · high-res download</span><span class="kr">6장 · 고해상도 다운로드</span></span>
       </div>
 
       <div class="gallery" id="gallery">
@@ -404,7 +400,6 @@
   <section class="sec contact" id="contact">
     <div class="wrap">
       <div class="sec-head">
-        <span class="sec-no">07</span>
         <h2 class="sec-title"><span class="en">Contact</span><span class="kr">연락</span></h2>
       </div>
 
@@ -455,19 +450,15 @@
 
 <!-- MINI PLAYER BAR -->
 <div class="mp" id="miniPlayer" data-state="paused" role="region" aria-label="Music player">
-  <button class="mp-play" id="mpPlay" type="button" aria-label="Play"></button>
-  <div class="mp-info">
-    <span class="mp-title" id="mpTitle">NECTA — GOTTA FIX MY BANGS</span>
-    <div class="mp-seek" id="mpSeek" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="mpProg"></i></div>
-  </div>
-  <span class="mp-time" id="mpTime">0:00 / 0:00</span>
-  <button class="mp-mute" id="mpMute" type="button" aria-label="Mute" aria-pressed="false">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.4L12 5.6v12.8L7.4 14.5H4z"/><path class="mp-wave" d="M15.4 8.7a4.6 4.6 0 010 6.6M18 6.2a8 8 0 010 11.6"/></svg>
+  <button class="mp-btn" id="mpPlay" type="button" aria-label="Play">
+    <span class="mp-ico" id="mpIco" aria-hidden="true">▶</span><span id="mpLabel">Play</span>
   </button>
-  <input class="mp-vol" id="mpVol" type="range" min="0" max="100" value="100" step="1" aria-label="Volume">
+  <span class="mp-title">NECTA — GOTTA FIX MY BANGS</span>
+  <div class="mp-seek" id="mpSeek" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="mpProg"></i></div>
+  <span class="mp-time" id="mpTime">0:00 / 0:00</span>
   <audio id="mpAudio" src="assets/audio/gotta-fix-my-bangs.mp3" preload="metadata"></audio>
 </div>
 
-<script src="assets/js/main.js?v=17" defer></script>
+<script src="assets/js/main.js?v=18" defer></script>
 </body>
 </html>
