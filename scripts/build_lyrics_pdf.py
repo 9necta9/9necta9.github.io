@@ -154,7 +154,33 @@ you can not sit with me
 
 Bitch you ain't got shit on me
 Bitch you ain't got shit on me"""),
- ("04", "BRATTY TEEN DAUGHTER", ""),
+ ("04", "BRATTY TEEN DAUGHTER", """상관없는데 어떡해
+뭐라고 불러도 don't care
+애쓸거 없어 귀찮게
+설명해달래 내가 왜
+
+쟤가 원래 좀 그래
+착한 네가 이해할래?
+맛있는 거 사줄게
+착한 네가 이해할래?
+
+쟤가 원래 좀 그래
+착한 네가 이해할래?
+아무튼간에
+착한 네가 이해좀해
+
+혼자 살아야겠다 쟤는
+혼자 살아야겠다 쟤는
+혼자 살아야겠다 쟤는
+혼자 살아야겠다 쟤는
+
+원래 그런 사람이 어딨냐면 니 눈 앞에
+심리분석 같은 건 노땡큐야 진짜 귀찮게
+하나부터 열까지 괜찮은게 하나도 없네
+혼자살게 이렇게 좀 가만히둬 이렇게
+
+원래 그런 사람이 어딨냐면 니 눈앞에
+원래 그런 사람이 어딨냐면 니 눈앞에"""),
  ("05", "GOTTA FIX MY BANGS", """Bring me scissors
 I gotta fix my bangs 
 Five more minutes 
