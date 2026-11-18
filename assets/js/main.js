@@ -256,57 +256,38 @@
   });
 
   /* ============================================================
-     MINI PLAYER BAR (YouTube IFrame API)
+     MINI PLAYER BAR (HTML5 audio — GOTTA FIX MY BANGS)
      ============================================================ */
   var mp = document.getElementById('miniPlayer');
+  var mpAudio = document.getElementById('mpAudio');
 
-  if (mp) {
-    var mpTracks = [
-      { id: 'TMpNwV3jur4', title: 'TONGUES ON FIRE (feat. YOUHA)' },
-      { id: 'tYMHT1vPHUU', title: 'PUT THEM IN SHOYU' },
-      { id: 'aIJ7ihRCS7Q', title: 'LOVEY DOVEY' },
-      { id: 'i40SDQeMpcI', title: 'THE BOY IS MINE' },
-      { id: 'QNnZcBhI2BM', title: 'GIRLHOOD' },
-      { id: 'iCM2_iZ6-JE', title: 'SEOUL BIZARRE' }
-    ];
+  if (mp && mpAudio) {
     var mpPlayBtn = document.getElementById('mpPlay');
-    var mpPrevBtn = document.getElementById('mpPrev');
-    var mpNextBtn = document.getElementById('mpNext');
-    var mpTitleEl = document.getElementById('mpTitle');
-    var mpIdxEl = document.getElementById('mpIdx');
-    var mpProgEl = document.getElementById('mpProg');
-    var mpIndex = 0;
-    var mpPlayer = null;
-    var mpReady = false;
-    var mpApiRequested = false;
-    var mpApiCallback = null;
-    var mpPending = false;
-    var mpProgTimer = null;
+    var mpSeek = document.getElementById('mpSeek');
+    var mpProg = document.getElementById('mpProg');
+    var mpTime = document.getElementById('mpTime');
+    var mpMute = document.getElementById('mpMute');
+    var mpVol = document.getElementById('mpVol');
 
-    function pad2(n) { return (n < 10 ? '0' : '') + n; }
+    function mpFmt(s) {
+      if (!isFinite(s) || s < 0) s = 0;
+      var m = Math.floor(s / 60);
+      var sec = Math.floor(s % 60);
+      return m + ':' + (sec < 10 ? '0' : '') + sec;
+    }
 
-    function mpRender() {
-      mpTitleEl.textContent = mpTracks[mpIndex].title;
-      mpIdxEl.textContent = pad2(mpIndex + 1) + ' / ' + pad2(mpTracks.length);
-      mpPlayBtn.setAttribute('aria-label', mp.getAttribute('data-state') === 'playing' ? 'Pause' : 'Play');
+    function mpPaint() {
+      var d = mpAudio.duration;
+      var t = mpAudio.currentTime || 0;
+      var pct = d ? Math.min(100, (t / d) * 100) : 0;
+      mpProg.style.width = pct + '%';
+      mpSeek.setAttribute('aria-valuenow', String(Math.round(pct)));
+      mpTime.textContent = mpFmt(t) + ' / ' + mpFmt(d);
     }
 
     function mpSetState(state) {
       mp.setAttribute('data-state', state);
       mpPlayBtn.setAttribute('aria-label', state === 'playing' ? 'Pause' : 'Play');
-      if (state === 'playing') {
-        if (!mpProgTimer) {
-          mpProgTimer = setInterval(function () {
-            if (!mpPlayer || !mpPlayer.getDuration) return;
-            var d = mpPlayer.getDuration();
-            var t = mpPlayer.getCurrentTime();
-            mpProgEl.style.width = (d ? Math.min(100, (t / d) * 100) : 0) + '%';
-          }, 400);
-        }
-      } else if (mpProgTimer) {
-        clearInterval(mpProgTimer);
-        mpProgTimer = null;
-      }
     }
 
     function mpStopStageVideo() {
@@ -316,102 +297,79 @@
       if (playerPoster) playerPoster.style.display = '';
     }
 
-    function mpPauseSilently() {
-      if (mpPlayer && mp.getAttribute('data-state') === 'playing') {
-        try { mpPlayer.pauseVideo(); } catch (e) {}
-      }
-    }
-
-    function mpSyncCard(id) {
-      vcards.forEach(function (c) {
-        c.classList.toggle('is-active', c.getAttribute('data-id') === id);
-      });
-    }
-
-    function mpOnState(e) {
-      if (e.data === 1) { mpSetState('playing'); mpSyncCard(mpTracks[mpIndex].id); }
-      else if (e.data === 2 || e.data === 5) mpSetState('paused');
-      else if (e.data === 0) { mpIndex = (mpIndex + 1) % mpTracks.length; mpRender(); mpPlayer.loadVideoById(mpTracks[mpIndex].id); }
-    }
-
-    function mpCreatePlayer() {
-      mpPlayer = new window.YT.Player('mpYt', {
-        width: 240,
-        height: 135,
-        videoId: mpTracks[mpIndex].id,
-        playerVars: {
-          autoplay: 0, controls: 0, playsinline: 1, rel: 0, modestbranding: 1,
-          origin: window.location.origin
-        },
-        events: {
-          onReady: function (e) {
-            mpReady = true;
-            if (mpPending) {
-              mpPending = false;
-              e.target.playVideo();
-            }
-          },
-          onStateChange: mpOnState
-        }
-      });
-    }
-
-    function mpLoadApi() {
-      if (mpApiRequested) return;
-      mpApiRequested = true;
-      var s = document.createElement('script');
-      s.src = 'https://www.youtube.com/iframe_api';
-      s.async = true;
-      document.head.appendChild(s);
-    }
-
-    window.onYouTubeIframeAPIReady = function () {
-      if (mpApiCallback) { var cb = mpApiCallback; mpApiCallback = null; cb(); }
-    };
-
-    function mpPlayCurrent() {
-      mpStopStageVideo();
-      if (mpPlayer && mpReady) {
-        mpPlayer.loadVideoById(mpTracks[mpIndex].id);
-        mpSyncCard(mpTracks[mpIndex].id);
-        return;
-      }
-      /* player still booting: start as soon as it is ready */
-      mpPending = true;
-      mpSyncCard(mpTracks[mpIndex].id);
-    }
-
     mpPlayBtn.addEventListener('click', function () {
-      var playing = mp.getAttribute('data-state') === 'playing';
-      if (!playing) { mpPlayCurrent(); }
-      else if (mpPlayer && mpReady) { try { mpPlayer.pauseVideo(); } catch (e) {} }
+      if (mpAudio.paused) {
+        mpStopStageVideo();
+        var p = mpAudio.play();
+        if (p && p.catch) p.catch(function () { mpSetState('paused'); });
+      } else {
+        mpAudio.pause();
+      }
     });
 
-    mpPrevBtn.addEventListener('click', function () {
-      mpIndex = (mpIndex - 1 + mpTracks.length) % mpTracks.length;
-      mpRender();
-      mpPlayCurrent();
+    mpAudio.addEventListener('play', function () { mpSetState('playing'); });
+    mpAudio.addEventListener('pause', function () { mpSetState('paused'); });
+    mpAudio.addEventListener('ended', function () { mpSetState('paused'); mpAudio.currentTime = 0; mpPaint(); });
+    mpAudio.addEventListener('loadedmetadata', mpPaint);
+    mpAudio.addEventListener('durationchange', mpPaint);
+    mpAudio.addEventListener('timeupdate', mpPaint);
+
+    function mpSeekTo(clientX) {
+      var r = mpSeek.getBoundingClientRect();
+      var d = mpAudio.duration;
+      if (!d || !r.width) return;
+      var ratio = Math.min(1, Math.max(0, (clientX - r.left) / r.width));
+      mpAudio.currentTime = ratio * d;
+      mpPaint();
+    }
+
+    mpSeek.addEventListener('click', function (e) { mpSeekTo(e.clientX); });
+    mpSeek.addEventListener('keydown', function (e) {
+      if (e.key !== 'ArrowRight' && e.key !== 'ArrowLeft') return;
+      e.preventDefault();
+      var step = e.key === 'ArrowRight' ? 5 : -5;
+      mpAudio.currentTime = Math.min(mpAudio.duration || 0, Math.max(0, (mpAudio.currentTime || 0) + step));
+      mpPaint();
     });
 
-    mpNextBtn.addEventListener('click', function () {
-      mpIndex = (mpIndex + 1) % mpTracks.length;
-      mpRender();
-      mpPlayCurrent();
+    function mpApplyMute() {
+      var muted = mpAudio.muted || mpAudio.volume === 0;
+      mpMute.setAttribute('aria-pressed', muted ? 'true' : 'false');
+      mpMute.setAttribute('aria-label', muted ? 'Unmute' : 'Mute');
+      mp.classList.toggle('is-muted', muted);
+    }
+
+    mpMute.addEventListener('click', function () {
+      if (mpAudio.muted || mpAudio.volume === 0) {
+        mpAudio.muted = false;
+        if (mpAudio.volume === 0) {
+          mpAudio.volume = 1;
+          if (mpVol) mpVol.value = 100;
+        }
+      } else {
+        mpAudio.muted = true;
+      }
+      mpApplyMute();
     });
+
+    if (mpVol) {
+      mpVol.addEventListener('input', function () {
+        var v = Number(mpVol.value) / 100;
+        mpAudio.volume = v;
+        mpAudio.muted = v === 0;
+        mpApplyMute();
+      });
+    }
 
     /* the section video player and the bar never play over each other */
     var basePlayVideo = playVideo;
     playVideo = function (id, title) {
-      mpPauseSilently();
+      if (!mpAudio.paused) mpAudio.pause();
       basePlayVideo(id, title);
     };
 
-    mpRender();
-
-    /* boot the player with the API as the page loads, so the first tap on
-       play keeps its user gesture (mobile autoplay policy) */
-    mpApiCallback = mpCreatePlayer;
-    mpLoadApi();
+    mpPaint();
+    mpApplyMute();
   }
 
   /* ---------- back to top with no hash jump ---------- */

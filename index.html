@@ -456,18 +456,16 @@
 <!-- MINI PLAYER BAR -->
 <div class="mp" id="miniPlayer" data-state="paused" role="region" aria-label="Music player">
   <button class="mp-play" id="mpPlay" type="button" aria-label="Play"></button>
-  <button class="mp-skip" id="mpPrev" type="button" aria-label="Previous track">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 5h2.4v14H6zM20 5v14L9.4 12z"/></svg>
-  </button>
-  <button class="mp-skip" id="mpNext" type="button" aria-label="Next track">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15.6 5H18v14h-2.4zM4 5v14l10.6-7z"/></svg>
-  </button>
   <div class="mp-info">
-    <span class="mp-k"><span>Now playing</span><span class="mp-idx" id="mpIdx">01 / 06</span></span>
-    <span class="mp-title" id="mpTitle">TONGUES ON FIRE (feat. YOUHA)</span>
+    <span class="mp-title" id="mpTitle">NECTA — GOTTA FIX MY BANGS</span>
+    <div class="mp-seek" id="mpSeek" role="slider" tabindex="0" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"><i id="mpProg"></i></div>
   </div>
-  <div class="mp-prog" aria-hidden="true"><i id="mpProg"></i></div>
-  <div class="mp-yt" id="mpYt" aria-hidden="true"></div>
+  <span class="mp-time" id="mpTime">0:00 / 0:00</span>
+  <button class="mp-mute" id="mpMute" type="button" aria-label="Mute" aria-pressed="false">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 9.5h3.4L12 5.6v12.8L7.4 14.5H4z"/><path class="mp-wave" d="M15.4 8.7a4.6 4.6 0 010 6.6M18 6.2a8 8 0 010 11.6"/></svg>
+  </button>
+  <input class="mp-vol" id="mpVol" type="range" min="0" max="100" value="100" step="1" aria-label="Volume">
+  <audio id="mpAudio" src="assets/audio/gotta-fix-my-bangs.mp3" preload="metadata"></audio>
 </div>
 
 <script src="assets/js/main.js?v=16" defer></script>
