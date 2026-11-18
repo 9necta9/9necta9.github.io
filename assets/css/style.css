@@ -95,13 +95,24 @@ html[data-lang="kr"] .en{display:none !important}
 .lang-sep{color:rgba(11,11,11,.28)}
 
 .menu-btn{
-  padding:0 clamp(14px,2vw,22px);
-  border-left:1px solid var(--rule);
-  cursor:pointer;
-  font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;
-  transition:background .25s ease,color .25s ease;
+  width:clamp(46px,5vw,58px);
+  padding:0;border-left:1px solid var(--rule);
+  cursor:pointer;color:var(--ink);
+  display:grid;place-items:center;
+  transition:color .25s ease;
 }
-.menu-btn:hover{background:var(--ink);color:var(--paper)}
+.menu-btn:hover{color:var(--muted)}
+.menu-ico{position:relative;display:block;width:17px;height:11px}
+.menu-ico i{
+  position:absolute;left:0;width:100%;height:1px;background:currentColor;
+  transition:transform .3s ease,opacity .2s ease;
+}
+.menu-ico i:nth-child(1){top:0}
+.menu-ico i:nth-child(2){top:5px}
+.menu-ico i:nth-child(3){top:10px}
+.nav.is-open .menu-ico i:nth-child(1){transform:translateY(5px) rotate(45deg)}
+.nav.is-open .menu-ico i:nth-child(2){opacity:0}
+.nav.is-open .menu-ico i:nth-child(3){transform:translateY(-5px) rotate(-45deg)}
 
 .nav-links{
   position:fixed;inset:0;z-index:-1;
@@ -122,7 +133,7 @@ html[data-lang="kr"] .en{display:none !important}
 .nav-links a:first-child{border-top:1px solid var(--rule)}
 .nav-links a:hover,.nav-links a.is-current{padding-left:10px}
 .nav.is-open .nav-links{opacity:1;pointer-events:auto;z-index:110}
-.nav.is-open .menu-btn{background:var(--ink);color:var(--paper)}
+.nav.is-open .menu-btn{color:var(--ink)}
 
 /* ============================================================
    HERO
