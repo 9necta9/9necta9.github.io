@@ -141,10 +141,13 @@ html[data-lang="de"] .de{display:inline !important}
 }
 
 .poster-title{
-  margin:clamp(8px,1.6vw,20px) 0 0;
-  font-size:0;line-height:0;
+  margin:clamp(10px,1.8vw,24px) 0 0;
+  font-family:var(--cond);font-weight:800;
+  font-size:clamp(1.55rem,8.4vw,6.4rem);
+  line-height:.86;letter-spacing:.005em;text-transform:uppercase;
+  white-space:nowrap;color:#0b0b0b;
 }
-.poster-title-img{display:block;width:100%;height:auto}
+.poster-title .ep{font-size:.56em;letter-spacing:.05em;font-weight:600}
 
 .poster-body{
   display:grid;
