@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Viewport check</title>
 <style>
   body{margin:0;background:#2a2a2a;display:flex;gap:24px;padding:24px;font-family:system-ui,sans-serif;color:#ddd}
@@ -12,11 +13,12 @@
 </style>
 </head>
 <body>
-  <figure><figcaption>390 × 844</figcaption><iframe id="a" src="/index.html"></iframe></figure>
-  <figure><figcaption>375 × 667</figcaption><iframe class="small" id="b" src="/index.html"></iframe></figure>
+  <figure><figcaption>390 × 844</figcaption><iframe id="a" src="/index.html?check=1"></iframe></figure>
+  <figure><figcaption>375 × 667</figcaption><iframe class="small" id="b" src="/index.html?check=1"></iframe></figure>
   <script>
-    if (location.hash) {
-      document.querySelectorAll('iframe').forEach(function (f) { f.src = '/index.html' + location.hash; });
+    var q = location.hash ? location.hash : '';
+    if (q) {
+      document.querySelectorAll('iframe').forEach(function (f) { f.src = '/index.html?check=1' + q; });
     }
   </script>
 </body>
