@@ -144,9 +144,10 @@ html[data-lang="de"] .de{display:inline !important}
 
 .poster-name{
   display:flex;align-items:baseline;justify-content:center;
-  gap:clamp(9px,1.5vw,16px);
-  margin:clamp(16px,2.6vw,30px) 0 0;
+  gap:clamp(8px,1.2vw,13px);
+  margin:clamp(8px,1.4vw,14px) 0 0;
 }
+.poster-dot{font-family:var(--mono);font-size:10px;color:var(--muted)}
 .poster-name-text{
   font-family:var(--cond);font-weight:600;
   font-size:clamp(1.5rem,3vw,2.5rem);
@@ -163,7 +164,8 @@ html[data-lang="de"] .de{display:inline !important}
   margin-top:clamp(14px,2.2vw,24px);
 }
 .poster-date{
-  font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--muted);
+  margin:clamp(14px,2.2vw,24px) 0 0;
+  font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted);
 }
 .btn{
   display:inline-flex;align-items:center;gap:12px;
