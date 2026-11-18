@@ -76,7 +76,7 @@
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  /* ---------- nav: mobile menu ---------- */
+  /* ---------- nav: index overlay ---------- */
   function closeMenu() {
     nav.classList.remove('is-open');
     if (menuBtn) menuBtn.setAttribute('aria-expanded', 'false');
@@ -92,6 +92,9 @@
   }
   navLinks.querySelectorAll('a').forEach(function (a) {
     a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && nav.classList.contains('is-open')) closeMenu();
   });
 
   /* ---------- nav: current section ---------- */
@@ -112,145 +115,9 @@
       });
     }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
     sections.forEach(function (s) { navObs.observe(s); });
-
-    /* ---------- reveal on scroll ---------- */
-    var reveals = document.querySelectorAll('.reveal');
-    var revObs = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add('is-in');
-          revObs.unobserve(en.target);
-        }
-      });
-    }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
-    reveals.forEach(function (el) { revObs.observe(el); });
-  } else {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('is-in'); });
   }
 
-  /* ---------- lightbox ---------- */
-  var shots = Array.prototype.slice.call(document.querySelectorAll('.shot'));
-  var lb = document.getElementById('lightbox');
-  var lbImg = document.getElementById('lbImg');
-  var lbCap = document.getElementById('lbCap');
-  var lbCount = document.getElementById('lbCount');
-  var lbDl = document.getElementById('lbDl');
-  var lbPrev = document.getElementById('lbPrev');
-  var lbNext = document.getElementById('lbNext');
-  var lbClose = document.getElementById('lbClose');
-  var current = 0;
-  var lastFocus = null;
-
-  var pad = function (n) { return (n < 10 ? '0' : '') + n; };
-
-  function shotData(i) {
-    var fig = shots[i];
-    var img = fig.querySelector('img');
-    var dl = fig.querySelector('.dl');
-    var cap = fig.querySelector('.shot-cap');
-    return {
-      large: img.getAttribute('srcset').split(',')[1].trim().split(' ')[0],
-      alt: img.getAttribute('alt') || '',
-      full: dl.getAttribute('href'),
-      name: dl.getAttribute('download'),
-      caption: cap.innerHTML
-    };
-  }
-
-  function render(i) {
-    current = (i + shots.length) % shots.length;
-    var d = shotData(current);
-    lbImg.src = d.large;
-    lbImg.alt = d.alt;
-    lbImg.classList.remove('is-zoomed');
-    lbCap.innerHTML = d.caption;
-    lbCount.textContent = pad(current + 1) + ' / ' + pad(shots.length);
-    lbDl.setAttribute('href', d.full);
-    lbDl.setAttribute('download', d.name);
-  }
-
-  function openLb(i) {
-    lastFocus = document.activeElement;
-    render(i);
-    lb.hidden = false;
-    document.body.classList.add('is-locked');
-    lbClose.focus();
-  }
-
-  function closeLb() {
-    lb.hidden = true;
-    document.body.classList.remove('is-locked');
-    lbImg.removeAttribute('src');
-    if (lastFocus) lastFocus.focus();
-  }
-
-  shots.forEach(function (fig, i) {
-    var btn = fig.querySelector('.shot-btn');
-    btn.addEventListener('click', function () { openLb(i); });
-  });
-
-  lbClose.addEventListener('click', closeLb);
-  lbPrev.addEventListener('click', function () { render(current - 1); });
-  lbNext.addEventListener('click', function () { render(current + 1); });
-  lbImg.addEventListener('click', function () { lbImg.classList.toggle('is-zoomed'); });
-  lb.addEventListener('click', function (e) { if (e.target === lb) closeLb(); });
-
-  document.addEventListener('keydown', function (e) {
-    if (lb.hidden) return;
-    if (e.key === 'Escape') closeLb();
-    else if (e.key === 'ArrowLeft') render(current - 1);
-    else if (e.key === 'ArrowRight') render(current + 1);
-  });
-
-  /* swipe on mobile */
-  var sx = null;
-  lb.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
-  lb.addEventListener('touchend', function (e) {
-    if (sx === null) return;
-    var dx = e.changedTouches[0].clientX - sx;
-    if (Math.abs(dx) > 55) render(current + (dx < 0 ? 1 : -1));
-    sx = null;
-  }, { passive: true });
-
-  /* ---------- inline video grid ---------- */
-  var vcards = Array.prototype.slice.call(document.querySelectorAll('.vcard'));
-  var openCard = null;
-  var openBtn = null;
-
-  function restoreVideo() {
-    if (!openCard || !openBtn) return;
-    openCard.classList.remove('is-playing');
-    var frame = openCard.querySelector('iframe');
-    if (frame && frame.parentNode === openCard) frame.parentNode.replaceChild(openBtn, frame);
-    openCard = null;
-    openBtn = null;
-  }
-
-  vcards.forEach(function (card) {
-    var btn = card.querySelector('.vthumb');
-    if (!btn) return;
-    btn.setAttribute('data-title', card.getAttribute('data-title') || '');
-    btn.addEventListener('click', function () {
-      if (openCard === card) return;
-      restoreVideo();
-      if (mpAudio && !mpAudio.paused) mpAudio.pause();
-      var f = document.createElement('iframe');
-      f.src = 'https://www.youtube.com/embed/' + card.getAttribute('data-id') + '?autoplay=1&rel=0';
-      f.title = 'NECTA — ' + (card.getAttribute('data-title') || '');
-      f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-      f.setAttribute('allowfullscreen', '');
-      f.className = 'vframe';
-      card.classList.add('is-playing');
-      card.replaceChild(f, btn);
-      openCard = card;
-      openBtn = btn;
-    });
-  });
-
-  /* ============================================================
-     MINI PLAYER BAR (HTML5 audio — GOTTA FIX MY BANGS)
-     ============================================================ */
+  /* ---------- mini player: HTML5 audio ---------- */
   var mp = document.getElementById('miniPlayer');
   var mpAudio = document.getElementById('mpAudio');
 
@@ -288,7 +155,6 @@
 
     mpPlayBtn.addEventListener('click', function () {
       if (mpAudio.paused) {
-        restoreVideo();
         var p = mpAudio.play();
         if (p && p.catch) p.catch(function () { mpState('paused'); });
       } else {
