@@ -175,7 +175,7 @@ html[data-lang="kr"] .en{display:none !important}
 
 .hero-cut{margin:0}
 .hero-media{
-  position:relative;aspect-ratio:4/5;overflow:hidden;
+  position:relative;aspect-ratio:3/4;overflow:hidden;
   border:1px solid var(--ink);
   background:#dcd8cf;
 }
@@ -629,7 +629,7 @@ body.is-locked{overflow:hidden}
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:clamp(22px,4vw,32px)}
   .hero-text{gap:16px}
-  .hero-media{aspect-ratio:4/5}
+  .hero-media{aspect-ratio:3/4}
   .hero-sub{max-width:34ch}
 }
 
@@ -650,7 +650,7 @@ body.is-locked{overflow:hidden}
   .vtext{font-size:8px;letter-spacing:.06em;padding-top:6px}
   .hero{padding-top:calc(var(--nav-h) + 22px)}
   .hero-name{font-size:clamp(4rem,20vw,6.4rem)}
-  .hero-media{aspect-ratio:1/1}
+  .hero-media{aspect-ratio:3/4}
   .lb-stage img{max-height:66vh}
   .mp{gap:10px}
   .mp-title{max-width:40%;font-size:12px}
