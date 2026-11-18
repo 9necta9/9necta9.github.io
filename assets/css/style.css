@@ -384,7 +384,7 @@ html[data-lang="jp"] .bio{
   .cover-art{width:min(100%,280px);margin-top:20px}
   .poster-name-text{font-size:1.4rem}
   .poster-loc{font-size:8px}
-  .hero-cut{width:100%}
+  .hero-cut{width:min(76%,280px)}
   .credits{font-size:1.02rem;max-width:30ch}
   .poster-title-img{max-width:100%}
 }
