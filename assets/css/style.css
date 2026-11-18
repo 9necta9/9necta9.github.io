@@ -73,7 +73,7 @@ html[data-lang="de"] .de{display:inline !important}
   font-size:clamp(15px,2vw,18px);line-height:1;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink);white-space:nowrap;
 }
-.brand-mark{height:20px;width:auto;display:block}
+.brand-mark{height:24px;width:auto;display:block}
 .lang{
   display:flex;align-items:center;gap:3px;
   font-family:var(--mono);font-size:9px;letter-spacing:.1em;
