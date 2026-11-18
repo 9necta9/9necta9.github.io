@@ -128,7 +128,7 @@ html[data-lang="de"] .de{display:inline !important}
 }
 
 .cover-art{
-  width:min(100%,306px);margin:0 auto;
+  width:min(100%,300px);margin:clamp(20px,3vw,30px) auto 0;
 }
 .cover-art img{
   display:block;
@@ -166,8 +166,10 @@ html[data-lang="de"] .de{display:inline !important}
   margin-top:clamp(14px,2.2vw,24px);
 }
 .poster-date{
-  margin:clamp(14px,2.2vw,24px) 0 0;
-  font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:var(--muted);
+  margin:clamp(15px,2.2vw,22px) 0 0;
+  font-family:var(--cond);font-weight:700;
+  font-size:clamp(12px,1.5vw,14px);letter-spacing:.16em;
+  color:var(--ink);
 }
 .tracks{
   list-style:none;
@@ -318,7 +320,7 @@ html[data-lang="jp"] .bio{
   .lang{font-size:8.5px;gap:2px}
   .lang-sep{margin:0 1px}
   .poster{padding-top:calc(var(--nav-h) + 16px)}
-  .cover-art{width:min(100%,300px)}
+  .cover-art{width:min(100%,280px);margin-top:20px}
   .poster-name-text{font-size:1.4rem}
   .poster-loc{font-size:8px}
   .hero-cut{width:100%}
