@@ -303,7 +303,7 @@ html[data-lang="kr"] .album-note,
 html[data-lang="jp"] .album-note{font-size:clamp(.92rem,1.2vw,.98rem);line-height:2}
 
 .bio{
-  margin:clamp(26px,4vw,44px) auto 0;max-width:52ch;
+  margin:clamp(26px,4vw,44px) auto 0;max-width:52ch;text-align:center;
   font-family:var(--serif);font-weight:400;
   font-size:clamp(1.12rem,2.1vw,1.5rem);
   line-height:1.5;
