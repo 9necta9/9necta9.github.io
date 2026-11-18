@@ -17,8 +17,8 @@
 <link rel="apple-touch-icon" href="assets/photos/og-sq.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@300;400&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=35">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@300;400;600&family=Noto+Sans+JP:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css?v=37">
 </head>
 <body>
 
@@ -112,6 +112,7 @@
             </div>
           </div>
           <figcaption class="hero-caption">
+            <button class="hero-arrow" id="heroPrev" type="button" aria-label="Previous photo">‹</button>
             <div class="hero-dots" id="heroDots" aria-label="Photo slideshow">
               <button type="button" class="is-active" aria-label="Photo 1" aria-current="true"></button>
               <button type="button" aria-label="Photo 2"></button>
@@ -120,6 +121,8 @@
               <button type="button" aria-label="Photo 5"></button>
               <button type="button" aria-label="Photo 6"></button>
             </div>
+            <span class="hero-count" aria-live="polite"><span id="heroCount">1</span> / 6</span>
+            <button class="hero-arrow" id="heroNext" type="button" aria-label="Next photo">›</button>
           </figcaption>
         </figure>
       </div>
@@ -215,6 +218,6 @@
   <audio id="mpAudio" src="assets/audio/gotta-fix-my-bangs.mp3" preload="metadata"></audio>
 </div>
 
-<script src="assets/js/main.js?v=35" defer></script>
+<script src="assets/js/main.js?v=37" defer></script>
 </body>
 </html>
