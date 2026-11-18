@@ -322,7 +322,9 @@ for num, title, text in SONGS:
         for line in wrap(raw, body, CW):
             d.text((ML, yy), line, font=body, fill=INK)
             yy += lh
-    cy = H - MB - 210
+    cy = yy + 46
+    if cy + 250 > H - MB:
+        cy = H - MB - 210
     d.line([(ML, cy), (W-MR, cy)], fill=(11,11,11), width=2)
     cy += 26
     d.text((ML, cy), "CREDITS", font=mono(17), fill=MUTED)
