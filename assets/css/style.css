@@ -240,7 +240,7 @@ html[data-lang="de"] .de{display:inline !important}
 /* ---------- 3:4 photo slideshow ---------- */
 .hero-cut{
   margin:clamp(28px,4.4vw,56px) auto 0;
-  width:min(100%,420px);
+  width:min(76%,280px);
   position:relative;
 }
 .hero-media{
