@@ -186,24 +186,6 @@ html[data-lang="kr"] .en{display:none !important}
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
 
 /* ============================================================
-   TICKER
-   ============================================================ */
-.ticker{
-  overflow:hidden;border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft);
-  padding:13px 0;background:var(--bg);
-}
-.ticker-track{
-  display:flex;align-items:center;gap:clamp(20px,3vw,38px);
-  width:max-content;
-  animation:marquee 48s linear infinite;
-}
-.ticker-track span{
-  font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);white-space:nowrap;
-}
-.ticker-track .dot{color:var(--accent);letter-spacing:0}
-@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-
-/* ============================================================
    SECTIONS
    ============================================================ */
 .wrap{
@@ -660,7 +642,7 @@ body.is-locked{overflow:hidden}
 }
 
 @media print{
-  .nav,.ticker,.hero-scroll,.lb,.foot-top,.dl{display:none !important}
+  .nav,.hero-scroll,.lb,.foot-top,.dl{display:none !important}
   body{background:#fff;color:#202425}
   .hero{min-height:auto;color:#202425}
   .sec--alt{background:#fff}
