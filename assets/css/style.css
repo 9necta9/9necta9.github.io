@@ -5,10 +5,10 @@
 
 :root{
   /* pink sampled from the dress in hero-sq.jpg (hsl 7°, s 40, l 86) */
-  --paper:#ead0cd;
+  --paper:#e85d6f;
   --ink:#0b0b0b;
   --ink-2:#2b2b2b;
-  --muted:#6c5a58;
+  --muted:#4a2226;
   --rule:rgba(11,11,11,.14);
   --rule-strong:rgba(11,11,11,.8);
   --nav-h:52px;
@@ -66,7 +66,7 @@ html[data-lang="de"] .de{display:inline !important}
   height:var(--nav-h);
   display:flex;align-items:center;justify-content:flex-end;gap:clamp(12px,3vw,26px);
   padding:0 var(--pad);
-  background:rgba(234,208,205,.92);
+  background:rgba(232,93,111,.92);
 }
 .lang{
   display:flex;align-items:center;gap:3px;
@@ -129,10 +129,13 @@ html[data-lang="de"] .de{display:inline !important}
 }
 
 .cover-art{
-  width:min(78%,430px);margin:0 auto;
+  width:min(100%,340px);margin:0 auto;
 }
 .cover-art img{
-  width:100%;aspect-ratio:1/1;object-fit:cover;display:block;
+  display:block;
+  width:100%;height:auto;
+  aspect-ratio:1/1;
+  object-fit:cover;
   background:#d9c3bf;
 }
 
@@ -177,9 +180,9 @@ html[data-lang="de"] .de{display:inline !important}
 .btn:hover,.btn:focus-visible{background:var(--ink);color:var(--paper)}
 .btn-arrow{font-size:11px;line-height:1}
 
-.hero-cut{margin:clamp(30px,5vw,60px) auto 0;width:min(100%,430px)}
+.hero-cut{margin:clamp(30px,5vw,60px) auto 0;width:min(100%,420px)}
 .hero-media{
-  position:relative;aspect-ratio:3/4;overflow:hidden;
+  position:relative;aspect-ratio:3/4;height:auto;min-height:0;overflow:hidden;
   background:#d9c3bf;
   touch-action:pan-y;
   -webkit-user-select:none;user-select:none;
@@ -285,7 +288,7 @@ html[data-lang="jp"] .bio{
   display:flex;align-items:center;gap:clamp(10px,2vw,22px);
   height:var(--mp-h);
   padding:0 var(--pad);
-  background:rgba(234,208,205,.97);
+  background:rgba(232,93,111,.97);
   border-top:1px solid rgba(11,11,11,.12);
 }
 .mp-btn{
@@ -323,7 +326,7 @@ html[data-lang="jp"] .bio{
   .lang{font-size:8.5px;gap:2px}
   .lang-sep{margin:0 1px}
   .poster{padding-top:calc(var(--nav-h) + 16px)}
-  .cover-art{width:min(86%,340px)}
+  .cover-art{width:min(100%,340px)}
   .poster-name-text{font-size:1.4rem}
   .poster-loc{font-size:8px}
   .hero-cut{width:100%}
