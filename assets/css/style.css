@@ -433,3 +433,33 @@ html[data-lang="kr"] .about-body .lede{
   .hero{padding-top:0}
   .sec{border-top:1px solid #000}
 }
+
+/* ---------- pre-release singles ---------- */
+.prs{margin-top:clamp(30px,4.6vw,56px);padding-top:clamp(18px,2.4vw,26px);border-top:1px solid var(--rule)}
+.prs-head{
+  font-family:var(--mono);font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+}
+.prs-lead{
+  margin:12px 0 clamp(18px,2.6vw,28px);
+  max-width:56ch;color:var(--ink-2);
+  font-size:clamp(.92rem,1.2vw,.98rem);line-height:1.8;
+}
+.prs-lead em{font-style:normal;font-family:var(--cond);font-weight:600;letter-spacing:.03em;text-transform:uppercase}
+.prs-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(12px,2vw,24px)}
+.prs-item{margin:0}
+.prs-item img{
+  width:100%;aspect-ratio:1/1;object-fit:cover;
+  border:1px solid var(--ink);background:#dcd8cf;
+}
+.prs-item figcaption{display:flex;flex-direction:column;gap:3px;padding-top:9px}
+.prs-title{
+  font-family:var(--cond);font-weight:600;font-size:15px;letter-spacing:.06em;text-transform:uppercase;line-height:1.1;
+}
+.prs-meta{
+  font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);
+}
+@media (max-width:520px){
+  .prs-grid{gap:10px}
+  .prs-title{font-size:13px}
+  .prs-meta{font-size:8px;letter-spacing:.08em}
+}
