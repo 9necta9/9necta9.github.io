@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NECTA">
-  <rect width="64" height="64" rx="16" fill="#d43222"/>
-  <text x="32" y="45" font-family="Syne, Archivo, Helvetica, Arial, sans-serif" font-size="38" font-weight="800"
-        letter-spacing="-2" text-anchor="middle" fill="#ffffff">N</text>
+  <rect width="64" height="64" fill="#0b0b0b"/>
+  <text x="32" y="46" font-family="Georgia, Times New Roman, serif" font-size="40" text-anchor="middle" fill="#f3f2ee">N</text>
 </svg>
