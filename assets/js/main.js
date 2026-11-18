@@ -136,25 +136,25 @@
   }
 
   /* ---------- inline tracklist player (shared audio element) ---------- */
-  var trBtns = Array.prototype.slice.call(document.querySelectorAll('.tr-play'));
+  var trRows = Array.prototype.slice.call(document.querySelectorAll('.tr-row'));
   var trAudio = document.getElementById('trAudio');
 
-  if (trBtns.length && trAudio) {
+  if (trRows.length && trAudio) {
     var trCurrent = -1;
 
     function trResetAll() {
-      trBtns.forEach(function (b) {
+      trRows.forEach(function (b) {
         b.classList.remove('is-on');
         b.setAttribute('aria-label', 'Play ' + b.getAttribute('data-title'));
       });
     }
     function trMark(i) {
-      if (i < 0 || !trBtns[i]) return;
-      trBtns[i].classList.add('is-on');
-      trBtns[i].setAttribute('aria-label', 'Pause ' + trBtns[i].getAttribute('data-title'));
+      if (i < 0 || !trRows[i]) return;
+      trRows[i].classList.add('is-on');
+      trRows[i].setAttribute('aria-label', 'Pause ' + trRows[i].getAttribute('data-title'));
     }
     function trPlayAt(i) {
-      var b = trBtns[i];
+      var b = trRows[i];
       if (!b) return;
       trResetAll();
       trCurrent = i;
@@ -163,12 +163,9 @@
       if (p && p.catch) p.catch(function () { trResetAll(); });
     }
 
-    trBtns.forEach(function (b, i) {
+    trRows.forEach(function (b, i) {
       b.addEventListener('click', function () {
-        if (trCurrent === i && !trAudio.paused) {
-          trAudio.pause();
-          return;
-        }
+        if (trCurrent === i && !trAudio.paused) { trAudio.pause(); return; }
         if (trCurrent === i && trAudio.paused && trAudio.src) {
           var p = trAudio.play();
           if (p && p.catch) p.catch(function () {});
@@ -179,10 +176,10 @@
     });
 
     trAudio.addEventListener('play', function () { trMark(trCurrent); });
-    trAudio.addEventListener('pause', function () { trMark(-1); trResetAll(); });
+    trAudio.addEventListener('pause', function () { trResetAll(); });
     trAudio.addEventListener('ended', function () {
       trResetAll();
-      if (trCurrent < trBtns.length - 1) trPlayAt(trCurrent + 1);
+      if (trCurrent < trRows.length - 1) trPlayAt(trCurrent + 1);
       else { trCurrent = -1; trAudio.currentTime = 0; }
     });
   }
