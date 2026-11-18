@@ -13,12 +13,25 @@
 </style>
 </head>
 <body>
-  <figure><figcaption>390 × 844</figcaption><iframe id="a" src="/index.html?check=1"></iframe></figure>
-  <figure><figcaption>375 × 667</figcaption><iframe class="small" id="b" src="/index.html?check=1"></iframe></figure>
+  <figure><figcaption>390 × 844</figcaption><iframe id="a" src="/index.html"></iframe></figure>
+  <figure><figcaption>375 × 667</figcaption><iframe class="small" id="b" src="/index.html"></iframe></figure>
   <script>
-    var q = location.hash ? location.hash : '';
-    var v = '?check=' + Date.now();
-    document.querySelectorAll('iframe').forEach(function (f) { f.src = '/index.html' + v + q; });
+    var hash = location.hash;
+    var targets = ['a', 'b'];
+    targets.forEach(function (id) {
+      var f = document.getElementById(id);
+      f.src = '/index.html?check=' + Date.now();
+      f.addEventListener('load', function () {
+        if (!hash) return;
+        setTimeout(function () {
+          try {
+            var doc = f.contentDocument;
+            var el = doc.querySelector(hash);
+            if (el) f.contentWindow.scrollTo(0, el.getBoundingClientRect().top + f.contentWindow.scrollY);
+          } catch (e) {}
+        }, 700);
+      });
+    });
   </script>
 </body>
 </html>
