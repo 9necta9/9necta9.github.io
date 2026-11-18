@@ -138,9 +138,8 @@
   /* ---------- track 5 inline player ---------- */
   var trPlay = document.getElementById('trPlay');
   var trAudio = document.getElementById('trAudio');
-  var trIco = document.getElementById('trIco');
 
-  if (trPlay && trAudio && trIco) {
+  if (trPlay && trAudio) {
     trPlay.addEventListener('click', function () {
       if (trAudio.paused) {
         var pr = trAudio.play();
@@ -150,20 +149,15 @@
       }
     });
     trAudio.addEventListener('play', function () {
-      trIco.textContent = '\u275A\u275A';
       trPlay.classList.add('is-on');
       trPlay.setAttribute('aria-label', 'Pause GOTTA FIX MY BANGS');
     });
-    trAudio.addEventListener('pause', function () {
-      trIco.textContent = '\u25B6';
+    function trReset() {
       trPlay.classList.remove('is-on');
       trPlay.setAttribute('aria-label', 'Play GOTTA FIX MY BANGS');
-    });
-    trAudio.addEventListener('ended', function () {
-      trIco.textContent = '\u25B6';
-      trPlay.classList.remove('is-on');
-      trAudio.currentTime = 0;
-    });
+    }
+    trAudio.addEventListener('pause', trReset);
+    trAudio.addEventListener('ended', function () { trReset(); trAudio.currentTime = 0; });
   }
 
   /* ---------- custom cursor (fine pointer only) ---------- */
