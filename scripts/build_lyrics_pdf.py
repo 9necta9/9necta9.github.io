@@ -219,7 +219,6 @@ def new_page(song_label="", page_no=None):
 
 def footer(page_no):
     img, d = pages[-1]
-    d.text((W-MR-60, H-MB+30), "%02d" % page_no, font=mono(19), fill=MUTED)
     d.text((ML, H-MB+30), "NECTA", font=mono(19), fill=MUTED)
 
 # ---------- cover page ----------
@@ -342,4 +341,6 @@ imgs[0].save('/workspace/tool-results/lyrics-page1.png')
 imgs[1].save('/workspace/tool-results/lyrics-page2.png')
 imgs[2].save('/workspace/tool-results/lyrics-page3.png')
 imgs[5].save('/workspace/tool-results/lyrics-page6.png')
+imgs[3].save('/workspace/tool-results/lyrics-page4.png')
+imgs[4].save('/workspace/tool-results/lyrics-page5.png')
 print("pages", len(imgs), "size", round(os.path.getsize(out)/1024/1024,2), "MB")
