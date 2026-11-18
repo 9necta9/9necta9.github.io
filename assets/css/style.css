@@ -122,7 +122,7 @@ html[data-lang="de"] .de{display:inline !important}
    ============================================================ */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 
-.poster{padding:calc(var(--nav-h) + clamp(26px,4.4vw,56px)) 0 0}
+.poster{position:relative;padding:calc(var(--nav-h) + clamp(26px,4.4vw,56px)) 0 0}
 .poster-grid{
   display:grid;
   grid-template-columns:minmax(0,1.24fr) minmax(290px,0.76fr);
@@ -130,6 +130,11 @@ html[data-lang="de"] .de{display:inline !important}
   align-items:end;
 }
 .poster-text{display:flex;flex-direction:column;gap:clamp(10px,1.4vw,16px)}
+.ornament{
+  width:clamp(104px,13vw,164px);height:auto;
+  margin:0 0 clamp(14px,2.4vw,26px);
+  opacity:.92;
+}
 
 .eyebrow{
   margin:0;
@@ -147,6 +152,17 @@ html[data-lang="de"] .de{display:inline !important}
   font-family:var(--cond);font-weight:800;
   font-size:clamp(3.4rem,9vw,8.4rem);
   line-height:.84;letter-spacing:.005em;text-transform:uppercase;
+  color:var(--ink);
+  transform:scaleY(1.14);transform-origin:bottom left;
+  padding-bottom:.04em;
+}
+@supports ((-webkit-background-clip:text) or (background-clip:text)){
+  .poster-title{
+    background-image:linear-gradient(101deg,#8ea2b4 0%,#e9eef3 24%,#a8bccd 48%,#e2e8ee 72%,#7d90a4 100%);
+    -webkit-background-clip:text;background-clip:text;
+    color:transparent;
+    -webkit-text-stroke:1.1px #0b0b0b;
+  }
 }
 .poster-sub{
   margin:clamp(4px,.8vw,10px) 0 0;
@@ -195,10 +211,20 @@ html[data-lang="de"] .de{display:inline !important}
 .hero-dots button:hover{background:rgba(11,11,11,.55)}
 .hero-dots button.is-active{background:var(--ink)}
 
+.stamp{
+  position:absolute;
+  writing-mode:vertical-rl;
+  font-family:var(--mono);font-size:8px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--muted);
+  pointer-events:none;
+}
+.stamp--right{right:calc(var(--pad) - 34px);top:38%}
+.stamp--left{left:calc(var(--pad) - 34px);top:clamp(40px,8vw,90px)}
+
 /* ============================================================
    SINGLES
    ============================================================ */
-.singles{padding:clamp(56px,9vw,120px) 0 0}
+.singles{position:relative;padding:clamp(56px,9vw,120px) 0 0}
 .singles-grid{
   display:grid;grid-template-columns:repeat(2,minmax(0,1fr));
   gap:clamp(14px,3vw,40px);
@@ -303,6 +329,7 @@ html[data-lang="jp"] .bio{
 @media (max-width:900px){
   .poster-grid{grid-template-columns:1fr;gap:clamp(22px,4vw,32px);align-items:start}
   .hero-media{aspect-ratio:3/4;max-width:520px}
+  .stamp{display:none}
 }
 
 @media (max-width:620px){
