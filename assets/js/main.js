@@ -135,29 +135,56 @@
     sections.forEach(function (s) { navObs.observe(s); });
   }
 
-  /* ---------- track 5 inline player ---------- */
-  var trPlay = document.getElementById('trPlay');
+  /* ---------- inline tracklist player (shared audio element) ---------- */
+  var trBtns = Array.prototype.slice.call(document.querySelectorAll('.tr-play'));
   var trAudio = document.getElementById('trAudio');
 
-  if (trPlay && trAudio) {
-    trPlay.addEventListener('click', function () {
-      if (trAudio.paused) {
-        var pr = trAudio.play();
-        if (pr && pr.catch) pr.catch(function () {});
-      } else {
-        trAudio.pause();
-      }
-    });
-    trAudio.addEventListener('play', function () {
-      trPlay.classList.add('is-on');
-      trPlay.setAttribute('aria-label', 'Pause GOTTA FIX MY BANGS');
-    });
-    function trReset() {
-      trPlay.classList.remove('is-on');
-      trPlay.setAttribute('aria-label', 'Play GOTTA FIX MY BANGS');
+  if (trBtns.length && trAudio) {
+    var trCurrent = -1;
+
+    function trResetAll() {
+      trBtns.forEach(function (b) {
+        b.classList.remove('is-on');
+        b.setAttribute('aria-label', 'Play ' + b.getAttribute('data-title'));
+      });
     }
-    trAudio.addEventListener('pause', trReset);
-    trAudio.addEventListener('ended', function () { trReset(); trAudio.currentTime = 0; });
+    function trMark(i) {
+      if (i < 0 || !trBtns[i]) return;
+      trBtns[i].classList.add('is-on');
+      trBtns[i].setAttribute('aria-label', 'Pause ' + trBtns[i].getAttribute('data-title'));
+    }
+    function trPlayAt(i) {
+      var b = trBtns[i];
+      if (!b) return;
+      trResetAll();
+      trCurrent = i;
+      trAudio.src = b.getAttribute('data-src');
+      var p = trAudio.play();
+      if (p && p.catch) p.catch(function () { trResetAll(); });
+    }
+
+    trBtns.forEach(function (b, i) {
+      b.addEventListener('click', function () {
+        if (trCurrent === i && !trAudio.paused) {
+          trAudio.pause();
+          return;
+        }
+        if (trCurrent === i && trAudio.paused && trAudio.src) {
+          var p = trAudio.play();
+          if (p && p.catch) p.catch(function () {});
+          return;
+        }
+        trPlayAt(i);
+      });
+    });
+
+    trAudio.addEventListener('play', function () { trMark(trCurrent); });
+    trAudio.addEventListener('pause', function () { trMark(-1); trResetAll(); });
+    trAudio.addEventListener('ended', function () {
+      trResetAll();
+      if (trCurrent < trBtns.length - 1) trPlayAt(trCurrent + 1);
+      else { trCurrent = -1; trAudio.currentTime = 0; }
+    });
   }
 
   /* ---------- custom cursor (fine pointer only) ---------- */
