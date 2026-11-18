@@ -184,6 +184,33 @@
     });
   }
 
+  /* ---------- two inline video slots ---------- */
+  var vidSlots = Array.prototype.slice.call(document.querySelectorAll('.vid'));
+  var vidOpen = null;
+
+  vidSlots.forEach(function (slot) {
+    var btn = slot.querySelector('.vid-btn');
+    if (!btn) return;
+    btn.addEventListener('click', function () {
+      if (vidOpen && vidOpen !== slot) {
+        var oldFrame = vidOpen.querySelector('iframe');
+        var oldBtn = vidOpen.querySelector('.vid-btn');
+        if (oldFrame && oldBtn && oldBtn.__orig) {
+          vidOpen.replaceChild(oldBtn, oldFrame);
+        }
+      }
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/' + slot.getAttribute('data-id') + '?autoplay=1&rel=0';
+      f.title = 'NECTA — ' + (slot.getAttribute('data-title') || '');
+      f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      f.setAttribute('allowfullscreen', '');
+      btn.__orig = true;
+      slot.replaceChild(f, btn);
+      vidOpen = slot;
+    });
+  });
+
   /* ---------- custom cursor (fine pointer only) ---------- */
   if (window.matchMedia && window.matchMedia('(pointer:fine)').matches) {
     var cursor = document.createElement('div');
