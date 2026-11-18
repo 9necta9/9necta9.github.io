@@ -57,54 +57,7 @@ Si eres humano
 Puedes hacerlo
 Todos lo tienen
 Es automático"""),
- ("02", "GOTTA FIX MY BANGS", """Bring me scissors
-I gotta fix my bangs 
-Five more minutes 
-Till I'm on my way 
-
-지기 싫어 나 오늘
-아무한테도 지기 싫어 나 오늘
-
-엄마가 준 거 낭비 낭비 25yrs
-걱정 개같이 하다 finally I'm here
-나 바뻐 taking pictures, click bait here
-feel like I've turned into a mutant
-예쁘게 좀 봐 this potent
-
-첨부터 알았다구
-거울 못보는 건 아니래두
-몰래 청불 영화를 보구
-오른쪽 뇌가 녹았다구
-
-You know me
-I ain't never really flexin'
-But you know what?
-You know me
-I was born a bad boy
-
-You know, you know bad boy
-You know, bad boy
-Bad boy
-You know, bad boy
-
-Bring me scissors
-I gotta fix my bangs 
-Five more minutes 
-Till I'm on my way 
-
-지기 싫어 나 오늘
-아무한테도 지기 싫어 나 오늘
-
-You know me, you you
-You know me, oh
-You know me, you you
-You know me, yay
-
-You know me, you you
-You know me, oh
-You know me, you you
-You know me, bad boy"""),
- ("03", "HIGH LIFE", """When I was a little girl
+ ("02", "HIGH LIFE", """When I was a little girl
 All I ever want is high life
 
 Standing here as a woman
@@ -146,7 +99,7 @@ act like I'm so tough
 이 짓이 지겨워 난 이제
 나 돈벌러가야돼
 넌 입을 닫길 바래"""),
- ("04", "KNOCK ME OUT", """Bitch you ain't got shit on me
+ ("03", "KNOCK ME OUT", """Bitch you ain't got shit on me
 할 말 있음 해 빨리
 Everybody be on my D
 Trying so hard,
@@ -201,7 +154,54 @@ you can not sit with me
 
 Bitch you ain't got shit on me
 Bitch you ain't got shit on me"""),
- ("05", "BRATTY TEEN DAUGHTER", ""),
+ ("04", "BRATTY TEEN DAUGHTER", ""),
+ ("05", "GOTTA FIX MY BANGS", """Bring me scissors
+I gotta fix my bangs 
+Five more minutes 
+Till I'm on my way 
+
+지기 싫어 나 오늘
+아무한테도 지기 싫어 나 오늘
+
+엄마가 준 거 낭비 낭비 25yrs
+걱정 개같이 하다 finally I'm here
+나 바뻐 taking pictures, click bait here
+feel like I've turned into a mutant
+예쁘게 좀 봐 this potent
+
+첨부터 알았다구
+거울 못보는 건 아니래두
+몰래 청불 영화를 보구
+오른쪽 뇌가 녹았다구
+
+You know me
+I ain't never really flexin'
+But you know what?
+You know me
+I was born a bad boy
+
+You know, you know bad boy
+You know, bad boy
+Bad boy
+You know, bad boy
+
+Bring me scissors
+I gotta fix my bangs 
+Five more minutes 
+Till I'm on my way 
+
+지기 싫어 나 오늘
+아무한테도 지기 싫어 나 오늘
+
+You know me, you you
+You know me, oh
+You know me, you you
+You know me, yay
+
+You know me, you you
+You know me, oh
+You know me, you you
+You know me, bad boy"""),
 ]
 
 CREDITS = ["Composed by Lemac, NECTA","Lyrics by NECTA","Arranged by Lemac",
