@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500&family=Instrument+Serif:ital@0;1&family=Noto+Sans+KR:wght@300;400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="assets/css/style.css?v=18">
+<link rel="stylesheet" href="assets/css/style.css?v=19">
 </head>
 <body>
 
@@ -163,49 +163,44 @@
         <h2 class="sec-title"><span class="en">Music &amp; videos</span><span class="kr">음악과 영상</span></h2>
       </div>
 
-      <div class="player" id="player">
-        <button class="player-poster" id="playerPoster" type="button" aria-label="Play video">
-          <img id="playerImg" src="https://i.ytimg.com/vi/TMpNwV3jur4/maxresdefault.jpg" alt="Still from the TONGUES ON FIRE music video" fetchpriority="low">
-          <span class="player-play" aria-hidden="true"><span class="tri"></span></span>
-          <span class="player-meta">
-            <span class="pm-k"><span class="en">Featured video</span><span class="kr">추천 영상</span></span>
-            <span class="pm-t" id="playerNow">TONGUES ON FIRE (feat. YOUHA)</span>
-          </span>
-        </button>
-        <div class="player-frame" id="playerFrame" hidden></div>
-      </div>
-
       <div class="vgrid" id="vgrid">
-        <button class="vcard is-active" type="button" data-id="TMpNwV3jur4" data-title="TONGUES ON FIRE (feat. YOUHA)">
-          <span class="vthumb"><img src="https://i.ytimg.com/vi/TMpNwV3jur4/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span></span>
-          <span class="vtext"><span class="v-no">01</span><span class="v-title">TONGUES ON FIRE (feat. YOUHA)</span><span class="v-kind">M/V</span></span>
-        </button>
-        <button class="vcard" type="button" data-id="tYMHT1vPHUU" data-title="PUT THEM IN SHOYU">
-          <span class="vthumb"><img src="https://i.ytimg.com/vi/tYMHT1vPHUU/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span></span>
-          <span class="vtext"><span class="v-no">02</span><span class="v-title">PUT THEM IN SHOYU</span><span class="v-kind">M/V</span></span>
-        </button>
-        <button class="vcard" type="button" data-id="aIJ7ihRCS7Q" data-title="LOVEY DOVEY">
-          <span class="vthumb"><img src="https://i.ytimg.com/vi/aIJ7ihRCS7Q/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span></span>
-          <span class="vtext"><span class="v-no">03</span><span class="v-title">LOVEY DOVEY</span><span class="v-kind">M/V</span></span>
-        </button>
-        <button class="vcard" type="button" data-id="i40SDQeMpcI" data-title="THE BOY IS MINE">
-          <span class="vthumb"><img src="https://i.ytimg.com/vi/i40SDQeMpcI/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span></span>
-          <span class="vtext"><span class="v-no">04</span><span class="v-title">THE BOY IS MINE</span><span class="v-kind">M/V</span></span>
-        </button>
-        <button class="vcard" type="button" data-id="QNnZcBhI2BM" data-title="GIRLHOOD — full album">
-          <span class="vthumb"><img src="https://i.ytimg.com/vi/QNnZcBhI2BM/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span></span>
-          <span class="vtext"><span class="v-no">05</span><span class="v-title">GIRLHOOD — full album</span><span class="v-kind">Album</span></span>
-        </button>
-        <button class="vcard" type="button" data-id="iCM2_iZ6-JE" data-title="SEOUL BIZARRE">
-          <span class="vthumb"><img src="https://i.ytimg.com/vi/iCM2_iZ6-JE/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span></span>
-          <span class="vtext"><span class="v-no">06</span><span class="v-title">SEOUL BIZARRE</span><span class="v-kind">M/V</span></span>
-        </button>
+        <div class="vcard" data-id="TMpNwV3jur4" data-title="TONGUES ON FIRE (feat. YOUHA)">
+          <button class="vthumb" type="button" aria-label="Play TONGUES ON FIRE">
+            <img src="https://i.ytimg.com/vi/TMpNwV3jur4/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span>
+          </button>
+          <span class="vtext"><span class="v-title">TONGUES ON FIRE (feat. YOUHA)</span></span>
+        </div>
+        <div class="vcard" data-id="tYMHT1vPHUU" data-title="PUT THEM IN SHOYU">
+          <button class="vthumb" type="button" aria-label="Play PUT THEM IN SHOYU">
+            <img src="https://i.ytimg.com/vi/tYMHT1vPHUU/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span>
+          </button>
+          <span class="vtext"><span class="v-title">PUT THEM IN SHOYU</span></span>
+        </div>
+        <div class="vcard" data-id="aIJ7ihRCS7Q" data-title="LOVEY DOVEY">
+          <button class="vthumb" type="button" aria-label="Play LOVEY DOVEY">
+            <img src="https://i.ytimg.com/vi/aIJ7ihRCS7Q/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span>
+          </button>
+          <span class="vtext"><span class="v-title">LOVEY DOVEY</span></span>
+        </div>
+        <div class="vcard" data-id="i40SDQeMpcI" data-title="THE BOY IS MINE">
+          <button class="vthumb" type="button" aria-label="Play THE BOY IS MINE">
+            <img src="https://i.ytimg.com/vi/i40SDQeMpcI/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span>
+          </button>
+          <span class="vtext"><span class="v-title">THE BOY IS MINE</span></span>
+        </div>
+        <div class="vcard" data-id="QNnZcBhI2BM" data-title="GIRLHOOD — full album">
+          <button class="vthumb" type="button" aria-label="Play GIRLHOOD, full album">
+            <img src="https://i.ytimg.com/vi/QNnZcBhI2BM/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span>
+          </button>
+          <span class="vtext"><span class="v-title">GIRLHOOD — full album</span></span>
+        </div>
+        <div class="vcard" data-id="iCM2_iZ6-JE" data-title="SEOUL BIZARRE">
+          <button class="vthumb" type="button" aria-label="Play SEOUL BIZARRE">
+            <img src="https://i.ytimg.com/vi/iCM2_iZ6-JE/hqdefault.jpg" alt="" loading="lazy"><span class="vplay" aria-hidden="true"></span>
+          </button>
+          <span class="vtext"><span class="v-title">SEOUL BIZARRE</span></span>
+        </div>
       </div>
-
-      <p class="gallery-note">
-        <span class="en">Tap a thumbnail to play it in the player above. Full catalogue on <a class="inline-link" href="https://open.spotify.com/artist/41aotofRYK9RvrKFk5ZY5U" target="_blank" rel="noopener">Spotify</a> and <a class="inline-link" href="https://music.apple.com/us/artist/necta/1504039857" target="_blank" rel="noopener">Apple Music</a>.</span>
-        <span class="kr">썸네일을 누르면 위 플레이어에서 재생됩니다. 전체 음원은 <a class="inline-link" href="https://open.spotify.com/artist/41aotofRYK9RvrKFk5ZY5U" target="_blank" rel="noopener">스포티파이</a>와 <a class="inline-link" href="https://music.apple.com/us/artist/necta/1504039857" target="_blank" rel="noopener">애플 뮤직</a>에서 들을 수 있습니다.</span>
-      </p>
     </div>
   </section>
 
@@ -459,6 +454,6 @@
   <audio id="mpAudio" src="assets/audio/gotta-fix-my-bangs.mp3" preload="metadata"></audio>
 </div>
 
-<script src="assets/js/main.js?v=18" defer></script>
+<script src="assets/js/main.js?v=19" defer></script>
 </body>
 </html>

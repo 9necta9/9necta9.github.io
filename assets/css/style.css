@@ -310,54 +310,19 @@ html[data-lang="kr"] .en{display:none !important}
 .about-listen-k{display:none}
 
 /* ---------- 02 music & videos ---------- */
-.player{
-  position:relative;aspect-ratio:16/9;background:#111;
-  border:1px solid var(--ink);
-  overflow:hidden;
-  margin-bottom:clamp(10px,1.6vw,16px);
-}
-.player-poster{
-  position:absolute;inset:0;display:block;width:100%;height:100%;
-  padding:0;border:0;background:#111;cursor:pointer;overflow:hidden;
-}
-.player-poster img{
-  width:100%;height:100%;object-fit:cover;
-  filter:brightness(.9) saturate(.98);
-  transition:transform 1.1s cubic-bezier(.2,.7,.2,1),filter .5s ease;
-}
-.player-poster:hover img{transform:scale(1.01);filter:brightness(.97) saturate(1)}
-.player-play{
-  position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:clamp(44px,4.6vw,58px);aspect-ratio:1;
-  border:1px solid rgba(255,255,255,.9);background:rgba(11,11,11,.5);
-  display:grid;place-items:center;
-  transition:background .3s ease;
-}
-.tri{
-  width:0;height:0;margin-left:4px;
-  border-left:11px solid #fff;border-top:7px solid transparent;border-bottom:7px solid transparent;
-}
-.player-poster:hover .player-play{background:#0b0b0b}
-.player-meta{
-  position:absolute;left:0;right:0;bottom:0;
-  display:flex;flex-direction:column;align-items:flex-start;gap:4px;text-align:left;
-  padding:clamp(12px,2vw,22px);
-  background:linear-gradient(to top,rgba(8,8,8,.72),rgba(8,8,8,0));
-}
-.pm-k{font-family:var(--mono);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75)}
-.pm-t{font-family:var(--cond);font-size:clamp(1rem,1.7vw,1.25rem);letter-spacing:.04em;text-transform:uppercase;color:#fff}
-.player-frame{position:absolute;inset:0}
-.player-frame iframe{width:100%;height:100%;border:0;display:block}
-
 .vgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,1.6vw,20px)}
 .vcard{
   display:block;width:100%;padding:0;border:0;background:none;
   cursor:pointer;text-align:left;
 }
 .vthumb{
-  position:relative;display:block;aspect-ratio:16/9;overflow:hidden;
+  position:relative;display:block;width:100%;padding:0;cursor:pointer;
+  aspect-ratio:16/9;overflow:hidden;
   background:#111;border:1px solid var(--rule);
   transition:border-color .3s ease;
+}
+.vframe{
+  display:block;width:100%;aspect-ratio:16/9;border:1px solid var(--ink);background:#000;
 }
 .vthumb img{
   width:100%;height:100%;object-fit:cover;

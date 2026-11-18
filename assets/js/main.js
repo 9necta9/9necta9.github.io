@@ -212,46 +212,39 @@
     sx = null;
   }, { passive: true });
 
-  /* ---------- video player ---------- */
-  var player = document.getElementById('player');
-  var playerPoster = document.getElementById('playerPoster');
-  var playerFrame = document.getElementById('playerFrame');
-  var playerNow = document.getElementById('playerNow');
+  /* ---------- inline video grid ---------- */
   var vcards = Array.prototype.slice.call(document.querySelectorAll('.vcard'));
-  var activeCard = document.querySelector('.vcard.is-active') || vcards[0];
+  var openCard = null;
+  var openBtn = null;
 
-  function playVideo(id, title) {
-    var f = document.createElement('iframe');
-    f.src = 'https://www.youtube.com/embed/' + id + '?autoplay=1&rel=0';
-    f.title = 'NECTA — ' + title;
-    f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
-    f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
-    f.setAttribute('allowfullscreen', '');
-    playerFrame.innerHTML = '';
-    playerFrame.appendChild(f);
-    playerFrame.hidden = false;
-    playerPoster.style.display = 'none';
-    playerNow.textContent = title;
-    vcards.forEach(function (c) {
-      c.classList.toggle('is-active', c.getAttribute('data-id') === id);
-    });
-  }
-
-  if (playerPoster) {
-    playerPoster.addEventListener('click', function () {
-      playVideo(activeCard.getAttribute('data-id'), activeCard.getAttribute('data-title'));
-    });
+  function restoreVideo() {
+    if (!openCard || !openBtn) return;
+    openCard.classList.remove('is-playing');
+    var frame = openCard.querySelector('iframe');
+    if (frame && frame.parentNode === openCard) frame.parentNode.replaceChild(openBtn, frame);
+    openCard = null;
+    openBtn = null;
   }
 
   vcards.forEach(function (card) {
-    card.addEventListener('click', function () {
-      var id = card.getAttribute('data-id');
-      activeCard = card;
-      playVideo(id, card.getAttribute('data-title'));
-      var r = player.getBoundingClientRect();
-      if (r.top < 70 || r.bottom > window.innerHeight) {
-        player.scrollIntoView({ behavior: 'smooth', block: 'center' });
-      }
+    var btn = card.querySelector('.vthumb');
+    if (!btn) return;
+    btn.setAttribute('data-title', card.getAttribute('data-title') || '');
+    btn.addEventListener('click', function () {
+      if (openCard === card) return;
+      restoreVideo();
+      if (mpAudio && !mpAudio.paused) mpAudio.pause();
+      var f = document.createElement('iframe');
+      f.src = 'https://www.youtube.com/embed/' + card.getAttribute('data-id') + '?autoplay=1&rel=0';
+      f.title = 'NECTA — ' + (card.getAttribute('data-title') || '');
+      f.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      f.setAttribute('referrerpolicy', 'strict-origin-when-cross-origin');
+      f.setAttribute('allowfullscreen', '');
+      f.className = 'vframe';
+      card.classList.add('is-playing');
+      card.replaceChild(f, btn);
+      openCard = card;
+      openBtn = btn;
     });
   });
 
@@ -293,16 +286,9 @@
       mpIco.textContent = playing ? '❚❚' : '▶';
     }
 
-    function mpStopStageVideo() {
-      if (!playerFrame || playerFrame.hidden) return;
-      playerFrame.innerHTML = '';
-      playerFrame.hidden = true;
-      if (playerPoster) playerPoster.style.display = '';
-    }
-
     mpPlayBtn.addEventListener('click', function () {
       if (mpAudio.paused) {
-        mpStopStageVideo();
+        restoreVideo();
         var p = mpAudio.play();
         if (p && p.catch) p.catch(function () { mpState('paused'); });
       } else {
@@ -336,13 +322,6 @@
       mpAudio.currentTime = Math.min(mpAudio.duration || 0, Math.max(0, (mpAudio.currentTime || 0) + step));
       mpPaint();
     });
-
-    /* the section video player and the bar never play over each other */
-    var basePlayVideo = playVideo;
-    playVideo = function (id, title) {
-      if (!mpAudio.paused) mpAudio.pause();
-      basePlayVideo(id, title);
-    };
 
     mpPaint();
     mpState('paused');
