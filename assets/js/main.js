@@ -10,7 +10,7 @@
   /* ---------- language ---------- */
   var langBtns = document.querySelectorAll('[data-set-lang]');
 
-  var LANGS = { en: 'en', kr: 'ko', es: 'es', jp: 'ja', de: 'de' };
+  var LANGS = { en: 'en', kr: 'ko', es: 'es', jp: 'ja', de: 'de', fr: 'fr' };
 
   function setLang(lang) {
     if (!LANGS[lang]) lang = 'en';

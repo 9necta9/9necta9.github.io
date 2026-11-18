@@ -44,12 +44,13 @@ button{font:inherit;color:inherit;border-radius:0;background:none;border:0}
 ::selection{background:var(--ink);color:var(--paper)}
 
 /* language switch — en / kr / es / jp / de */
-[data-lang] .en,[data-lang] .kr,[data-lang] .es,[data-lang] .jp,[data-lang] .de{display:none !important}
+[data-lang] .en,[data-lang] .kr,[data-lang] .es,[data-lang] .jp,[data-lang] .de,[data-lang] .fr{display:none !important}
 html[data-lang="en"] .en,
 html[data-lang="kr"] .kr,
 html[data-lang="es"] .es,
 html[data-lang="jp"] .jp,
-html[data-lang="de"] .de{display:inline !important}
+html[data-lang="de"] .de,
+html[data-lang="fr"] .fr{display:inline !important}
 
 .skip{
   position:absolute;left:-9999px;top:0;z-index:300;
