@@ -321,6 +321,7 @@ html[data-lang="jp"] .bio{
 
 .track-dl{margin-top:14px}
 .video-dl{margin-top:14px}
+.lyrics-dl{margin-top:12px}
 .press-dl{
   margin:16px auto 0;text-align:center;
   font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
