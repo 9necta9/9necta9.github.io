@@ -320,6 +320,7 @@ html[data-lang="jp"] .bio{
 .links a:hover{border-color:var(--ink);color:var(--muted)}
 
 .track-dl{margin-top:14px}
+.video-dl{margin-top:14px}
 .press-dl{
   margin:16px auto 0;text-align:center;
   font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;
@@ -347,7 +348,7 @@ html[data-lang="jp"] .bio{
 .foot{padding:0 0 28px}
 .foot-inner{
   max-width:var(--max);margin:0 auto;padding:0 var(--pad);
-  display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap;
+  display:flex;align-items:center;justify-content:flex-end;gap:14px;flex-wrap:wrap;
   font-family:var(--mono);font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);
 }
 .foot-top:hover{color:var(--ink)}
