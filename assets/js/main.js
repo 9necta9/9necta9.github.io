@@ -53,7 +53,7 @@
     slideTimer = setInterval(function () {
       if (document.hidden) return;
       showSlide(slideIndex + 1);
-    }, 5200);
+    }, 4420);
   }
 
   if (slides.length) {
