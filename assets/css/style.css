@@ -122,40 +122,33 @@ html[data-lang="de"] .de{display:inline !important}
    ============================================================ */
 .wrap{max-width:var(--max);margin:0 auto;padding:0 var(--pad)}
 
-.poster{position:relative;padding:calc(var(--nav-h) + clamp(26px,4.4vw,56px)) 0 0}
-.poster-grid{
-  display:grid;
-  grid-template-columns:minmax(0,1.24fr) minmax(290px,0.76fr);
-  gap:clamp(24px,4vw,64px);
-  align-items:end;
+.poster{position:relative;padding:calc(var(--nav-h) + clamp(24px,4vw,48px)) 0 0}
+.poster-head{
+  display:flex;align-items:flex-start;justify-content:space-between;gap:clamp(14px,3vw,40px);
 }
-.poster-text{display:flex;flex-direction:column;gap:clamp(10px,1.4vw,16px)}
-.ornament{
-  width:clamp(104px,13vw,164px);height:auto;
-  margin:0 0 clamp(14px,2.4vw,26px);
-  opacity:.92;
-}
-
-.eyebrow{
+.poster-name{
+  display:flex;align-items:baseline;gap:clamp(9px,1.5vw,16px);
   margin:0;
+}
+.poster-name-text{
+  font-family:var(--cond);font-weight:600;
+  font-size:clamp(1.6rem,3.2vw,2.7rem);
+  line-height:1;letter-spacing:.09em;text-transform:uppercase;
+}
+.poster-loc{
   font-family:var(--mono);font-size:9px;letter-spacing:.16em;text-transform:uppercase;
   color:var(--muted);
 }
-.poster-name{
-  margin:clamp(6px,1vw,12px) 0 0;
-  font-family:var(--cond);font-weight:600;
-  font-size:clamp(1.6rem,3.2vw,2.6rem);
-  line-height:1;letter-spacing:.08em;text-transform:uppercase;
-}
+
 .poster-title{
-  margin:0;
+  margin:clamp(14px,2.4vw,30px) 0 0;
   font-family:var(--cond);font-weight:800;
-  font-size:clamp(3.4rem,9vw,8.4rem);
-  line-height:.84;letter-spacing:.005em;text-transform:uppercase;
+  font-size:clamp(1.85rem,8.4vw,7rem);
+  line-height:.86;letter-spacing:.005em;text-transform:uppercase;
+  white-space:nowrap;
   color:var(--ink);
-  transform:scaleY(1.14);transform-origin:bottom left;
-  padding-bottom:.04em;
 }
+.poster-title .ep{font-size:.58em;letter-spacing:.05em;font-weight:600}
 @supports ((-webkit-background-clip:text) or (background-clip:text)){
   .poster-title{
     background-image:linear-gradient(101deg,#8ea2b4 0%,#e9eef3 24%,#a8bccd 48%,#e2e8ee 72%,#7d90a4 100%);
@@ -164,15 +157,18 @@ html[data-lang="de"] .de{display:inline !important}
     -webkit-text-stroke:1.1px #0b0b0b;
   }
 }
-.poster-sub{
-  margin:clamp(4px,.8vw,10px) 0 0;
-  font-family:var(--serif);font-style:italic;font-weight:400;
-  font-size:clamp(1.15rem,2.1vw,1.6rem);
-  line-height:1.25;max-width:30ch;
+
+.poster-body{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(280px,34%);
+  gap:clamp(22px,4vw,60px);
+  align-items:end;
+  margin-top:clamp(20px,3vw,40px);
 }
 .poster-foot{
-  display:flex;align-items:center;gap:clamp(14px,2.4vw,26px);flex-wrap:wrap;
-  margin-top:clamp(10px,1.8vw,20px);
+  display:flex;flex-direction:column;align-items:flex-start;
+  gap:clamp(12px,2vw,18px);
+  padding-bottom:4px;
 }
 .poster-date{
   font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--muted);
@@ -186,6 +182,15 @@ html[data-lang="de"] .de{display:inline !important}
 }
 .btn:hover,.btn:focus-visible{background:var(--ink);color:var(--paper)}
 .btn-arrow{font-size:11px;line-height:1}
+
+.stamp{
+  writing-mode:vertical-rl;
+  font-family:var(--mono);font-size:8px;letter-spacing:.32em;text-transform:uppercase;
+  color:var(--muted);pointer-events:none;
+  white-space:nowrap;
+}
+.stamp--right{flex:0 0 auto;margin-top:2px}
+.stamp--left{position:absolute;left:calc(var(--pad) - 34px);top:clamp(40px,8vw,90px)}
 
 .hero-cut{margin:0}
 .hero-media{
@@ -286,6 +291,28 @@ html[data-lang="jp"] .bio{
 .foot-top:hover{color:var(--ink)}
 
 /* ============================================================
+   CUSTOM CURSOR (desktop, fine pointer)
+   ============================================================ */
+@media (pointer:fine){
+  body{cursor:url("assets/cursor-necta-32.png") 6 2,auto}
+  body.cursor-on,body.cursor-on a,body.cursor-on button{cursor:none}
+}
+.cursor{
+  position:fixed;left:0;top:0;z-index:400;
+  width:34px;height:42px;
+  pointer-events:none;opacity:0;
+  transform:translate3d(-120px,-120px,0);
+  transition:opacity .25s ease;
+  will-change:transform;
+}
+.cursor img{
+  width:100%;height:100%;object-fit:contain;display:block;
+  transform-origin:50% 88%;
+  transition:transform .32s cubic-bezier(.3,.7,.2,1);
+}
+.cursor.is-falling img{transform:rotate(-68deg) translate(-8px,6px)}
+
+/* ============================================================
    MINI PLAYER BAR
    ============================================================ */
 .mp{
@@ -327,9 +354,11 @@ html[data-lang="jp"] .bio{
    RESPONSIVE
    ============================================================ */
 @media (max-width:900px){
-  .poster-grid{grid-template-columns:1fr;gap:clamp(22px,4vw,32px);align-items:start}
+  .poster-body{grid-template-columns:1fr;gap:clamp(22px,4vw,32px);align-items:start}
+  .poster-foot{order:2;flex-direction:row;align-items:center;flex-wrap:wrap;padding-top:4px}
+  .hero-cut{order:1}
   .hero-media{aspect-ratio:3/4;max-width:520px}
-  .stamp{display:none}
+  .stamp--left{display:none}
 }
 
 @media (max-width:620px){
@@ -337,8 +366,10 @@ html[data-lang="jp"] .bio{
   .lang{font-size:8.5px;gap:2px}
   .lang-sep{margin:0 1px}
   .poster{padding-top:calc(var(--nav-h) + 20px)}
-  .poster-title{font-size:clamp(3.1rem,15.5vw,5.4rem)}
-  .poster-name{font-size:1.45rem;letter-spacing:.1em}
+  .poster-title{font-size:clamp(1.5rem,8.2vw,2.6rem)}
+  .poster-name-text{font-size:1.35rem}
+  .poster-loc{font-size:8px}
+  .stamp{font-size:7px;letter-spacing:.24em}
   .cover-title{font-size:.9rem}
   .cover-meta{font-size:8px;letter-spacing:.06em}
   .mp{gap:10px}
