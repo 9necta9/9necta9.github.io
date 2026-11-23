@@ -1,6 +1,6 @@
 /* ============================================================
    NECTA — ARTIST EPK (draft)
-   pink zine poster — cherry pink paper, white dashed cards
+   pink poster — cherry pink paper, clean white cards
    ============================================================ */
 
 :root{
@@ -9,15 +9,16 @@
   --pink-dark:#a52440;
   --yellow:#ffd60a;
   --red:#e1140a;
-  --ink:#0b0b0b;
+  --mint:#2ce6a8;          /* complement of the pink background */
+  --mint-deep:#063b2b;     /* deep green — logotype stroke */
+  --ink:#111;
   --paper:#ffffff;
   --muted:#5c2b32;
-  --hair:rgba(11,11,11,.16);
-  --dash:rgba(11,11,11,.9);
+  --hair:rgba(17,17,17,.14);
   --sans:"Inter","Helvetica Neue",Helvetica,Arial,"Noto Sans KR","Apple SD Gothic Neo",sans-serif;
   --black:"Archivo Black","Arial Black","Helvetica Neue",Arial,"Noto Sans KR",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
-  --gutter:clamp(14px,3.2vw,44px);
+  --gutter:clamp(28px,7.6vw,40px);
 }
 
 *,*::before,*::after{box-sizing:border-box}
@@ -34,26 +35,22 @@ body{
   line-height:1.7;
   -webkit-font-smoothing:antialiased;
   background-color:var(--pink);
-  background-image:
-    url("../stars.svg"),
-    url("../dots.svg"),
-    linear-gradient(180deg,#ff2d78 0%,#f2536a 22%,#e85d6f 46%,#e85d6f 100%);
-  background-size:540px 540px,160px 160px,100% 100%;
-  background-repeat:repeat,repeat,no-repeat;
-  background-position:0 0,0 0,0 0;
+  background-image:linear-gradient(180deg,#f0536e 0%,#ea5a6c 40%,#e85d6f 100%);
+  background-repeat:no-repeat;
+  background-size:100% 100%;
 }
 
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radius:0;cursor:pointer}
-::selection{background:var(--ink);color:var(--yellow)}
+::selection{background:var(--ink);color:var(--mint)}
 
 :focus-visible{outline:3px solid var(--hot);outline-offset:3px}
 
 /* ---------- page + cards ---------- */
 
 .page{
-  max-width:840px;
+  max-width:500px;
   margin:0 auto;
   padding:0 var(--gutter);
 }
@@ -61,37 +58,21 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
 .card{
   position:relative;
   background:var(--paper);
-  border:5px dashed var(--dash);
-  padding:clamp(20px,3.4vw,34px) clamp(16px,3vw,34px) clamp(24px,3.4vw,36px);
-  box-shadow:10px 10px 0 rgba(11,11,11,.14);
+  border:1.5px solid var(--ink);
+  padding:clamp(20px,4vw,30px) clamp(18px,4.4vw,28px) clamp(24px,4.2vw,32px);
 }
 
-.card + .card{margin-top:clamp(16px,2.6vw,26px)}
+.card + .card{margin-top:clamp(18px,3vw,26px)}
 
 /* ---------- poster head ---------- */
 
-.eyebrow{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:12px;
-  margin:0 0 clamp(10px,2vw,18px);
-  font-family:var(--mono);
-  font-size:9.5px;
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  color:var(--muted);
-  border-bottom:1.5px solid var(--hair);
-  padding-bottom:8px;
-}
-
 .logotype{
   position:relative;
-  display:inline-block;
+  display:block;
   margin:0;
   font-family:var(--black);
   font-weight:400;
-  font-size:clamp(58px,21vw,168px);
+  font-size:clamp(44px,16vw,96px);
   line-height:.86;
   letter-spacing:-.025em;
   text-transform:uppercase;
@@ -102,114 +83,39 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
   position:absolute;
   inset:0;
   z-index:-1;
-  color:var(--red);
-  -webkit-text-stroke:.13em var(--red);
+  color:var(--mint-deep);
+  -webkit-text-stroke:.13em var(--mint-deep);
 }
-.logotype .fill{color:var(--yellow)}
-
-.handle{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:10px;
-  margin:clamp(12px,2.2vw,18px) 0 0;
-  padding:7px 11px;
-  background:var(--ink);
-  color:#fff;
-  font-family:var(--mono);
-  font-size:clamp(10px,2.4vw,12px);
-  letter-spacing:.2em;
-  text-transform:uppercase;
-}
-.handle .h-r{opacity:.62;letter-spacing:.14em}
+.logotype .fill{color:var(--mint)}
 
 .loc{
   display:flex;
   align-items:center;
   justify-content:center;
   gap:8px;
-  margin:clamp(16px,2.6vw,22px) 0 0;
+  margin:clamp(14px,2.6vw,20px) 0 0;
   font-weight:800;
-  font-size:clamp(15px,3.6vw,19px);
+  font-size:clamp(14px,3.4vw,18px);
   letter-spacing:.03em;
   text-transform:uppercase;
   line-height:1.2;
 }
 .loc svg{flex:0 0 auto;width:1.05em;height:1.05em}
 
-.slogan{
-  margin:6px 0 0;
-  text-align:center;
-  font-family:var(--mono);
-  font-size:clamp(10px,2.5vw,12px);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  color:var(--muted);
-}
-
-/* ---------- photo slideshow ---------- */
+/* ---------- main photo ---------- */
 
 .stage{
-  margin:clamp(16px,3vw,26px) auto 0;
-  width:min(100%,540px);
-}
-
-.track{
-  position:relative;
-  aspect-ratio:1/1;
-  background:#141414;
-  overflow:hidden;
-  border:2px solid var(--ink);
-}
-
-.slide{
-  position:absolute;
-  inset:0;
-  opacity:0;
-  transition:opacity .35s ease;
-}
-.slide.is-active{opacity:1}
-
-.slide img{
+  margin:clamp(16px,3vw,24px) auto 0;
   width:100%;
-  height:100%;
-  object-fit:cover;
-  object-position:var(--pos,50% 22%);
+  max-width:420px;
+}
+
+.stage img{
+  width:100%;
+  height:auto;
+  border:1.5px solid var(--ink);
   filter:saturate(1.02) contrast(1.02);
 }
-
-.stage-bar{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-top:10px;
-  font-family:var(--mono);
-  font-size:10px;
-  letter-spacing:.1em;
-}
-
-.arrow{
-  width:30px;
-  height:30px;
-  display:grid;
-  place-items:center;
-  border:1.5px solid var(--dash);
-  font-size:16px;
-  line-height:1;
-  transition:background .15s,color .15s;
-}
-.arrow:hover{background:var(--ink);color:#fff}
-
-.dots{display:flex;align-items:center;gap:5px}
-.dots button{
-  width:7px;height:7px;
-  background:rgba(11,11,11,.22);
-  transition:background .15s,transform .15s;
-}
-.dots button.is-active{background:var(--hot);transform:scale(1.25)}
-
-.count{min-width:44px;text-align:center;color:var(--muted)}
 
 /* ---------- new EP call to action ---------- */
 
@@ -219,7 +125,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
   gap:12px;
   margin:clamp(18px,3vw,26px) auto 0;
   padding:10px 12px;
-  border:2.5px dashed var(--dash);
+  border:1.5px solid var(--ink);
   background:transparent;
   transition:background .15s,color .15s;
 }
@@ -231,11 +137,10 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
   width:42px;height:42px;
   display:grid;place-items:center;
   background:var(--hot);
-  border:2px solid var(--ink);
-  color:var(--yellow);
+  border:1.5px solid var(--ink);
+  color:var(--mint);
   font-size:20px;
   line-height:1;
-  text-shadow:0 0 0 var(--red);
 }
 
 .ep-body{display:flex;flex-direction:column;gap:1px;min-width:0}
@@ -248,14 +153,14 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
 }
 .ep-title{
   font-family:var(--black);
-  font-size:clamp(14px,3.6vw,19px);
+  font-size:clamp(14px,3.4vw,18px);
   line-height:1.15;
   letter-spacing:-.01em;
   text-transform:uppercase;
 }
 .ep-title .arw{font-family:var(--sans);font-weight:800}
 
-/* ---------- dashed link buttons ---------- */
+/* ---------- link buttons ---------- */
 
 .links{
   display:grid;
@@ -268,7 +173,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
   align-items:center;
   gap:11px;
   padding:10px 12px;
-  border:2px dashed rgba(11,11,11,.72);
+  border:1.5px solid rgba(17,17,17,.85);
   transition:background .15s,color .15s,border-color .15s;
 }
 .link-row:hover{background:var(--ink);color:#fff;border-color:var(--ink)}
@@ -299,7 +204,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
 .sec + .sec{
   margin-top:clamp(26px,4vw,36px);
   padding-top:clamp(22px,3.4vw,30px);
-  border-top:2px dashed rgba(11,11,11,.7);
+  border-top:1.5px solid var(--hair);
 }
 
 .sec-head{
@@ -323,7 +228,7 @@ button{font:inherit;color:inherit;background:none;border:0;padding:0;border-radi
 .sec-title{
   margin:0;
   font-family:var(--black);
-  font-size:clamp(17px,4vw,22px);
+  font-size:clamp(17px,3.8vw,21px);
   line-height:1;
   letter-spacing:-.01em;
   text-transform:uppercase;
@@ -356,7 +261,7 @@ html[data-lang="kr"] .en{display:none}
 .bio-text p{
   margin:0;
   max-width:60ch;
-  font-size:clamp(14px,1.4vw,15.5px);
+  font-size:clamp(14px,3.4vw,15.5px);
   line-height:1.85;
   font-weight:400;
   word-break:keep-all;
@@ -395,8 +300,8 @@ html[data-lang="kr"] .en{display:none}
   align-items:baseline;
   gap:10px;
   padding:10px 0;
-  border-bottom:1px dashed var(--hair);
-  font-size:clamp(13px,1.3vw,14.5px);
+  border-bottom:1px solid var(--hair);
+  font-size:clamp(13px,3.1vw,14.5px);
   line-height:1.5;
 }
 .list li:last-child{border-bottom:0;padding-bottom:0}
@@ -447,7 +352,7 @@ html[data-lang="kr"] .en{display:none}
 .d-title{
   margin:0;
   font-family:var(--black);
-  font-size:clamp(14px,2.6vw,17px);
+  font-size:clamp(14px,2.8vw,16.5px);
   line-height:1.15;
   letter-spacing:-.01em;
   text-transform:uppercase;
@@ -500,7 +405,7 @@ html[data-lang="kr"] .en{display:none}
   position:relative;
   aspect-ratio:16/9;
   background:var(--ink);
-  border:2px solid var(--ink);
+  border:1.5px solid var(--ink);
   overflow:hidden;
 }
 .vid-thumb img{
@@ -520,8 +425,8 @@ html[data-lang="kr"] .en{display:none}
   transform:translate(-50%,-50%);
   display:grid;place-items:center;
   background:var(--hot);
-  border:2px solid var(--ink);
-  color:var(--yellow);
+  border:1.5px solid var(--ink);
+  color:#fff;
 }
 .vid-play::after{
   content:"";
@@ -557,7 +462,7 @@ html[data-lang="kr"] .en{display:none}
 .contact-mail{
   display:inline-block;
   font-family:var(--black);
-  font-size:clamp(17px,4.4vw,25px);
+  font-size:clamp(16px,4.2vw,23px);
   line-height:1.2;
   letter-spacing:-.01em;
   border-bottom:3px solid var(--hot);
@@ -604,10 +509,8 @@ html[data-lang="kr"] .en{display:none}
 
 /* ---------- small screens ---------- */
 @media (max-width:420px){
-  .card{border-width:4px;box-shadow:7px 7px 0 rgba(11,11,11,.14)}
-  .handle{font-size:10px;letter-spacing:.16em}
-  .loc{font-size:14px}
   .ep-badge{width:38px;height:38px;font-size:18px}
+  .loc{font-size:13.5px}
 }
 
 @media (prefers-reduced-motion:reduce){
