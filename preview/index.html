@@ -15,8 +15,6 @@
 :root{
   --pink:#e85d6f;
   --hot:#ff2d78;
-  --mint:#2ce6a8;
-  --mint-deep:#063b2b;
   --ink:#111;
   --paper:#fffaf3;
   --seal:#c8322a;
@@ -43,7 +41,7 @@ body{
 
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
-::selection{background:var(--ink);color:var(--mint)}
+::selection{background:var(--ink);color:#ffd9de}
 :focus-visible{outline:3px solid var(--hot);outline-offset:3px}
 
 /* ---------- the single card ---------- */
@@ -70,18 +68,15 @@ a{color:inherit;text-decoration:none}
 }
 
 .logotype{
-  margin:2px 0 0;
-  font-family:var(--brush);
-  font-weight:400;
-  font-size:clamp(80px,25vw,104px);
-  line-height:.72;
-  letter-spacing:.015em;
-  text-transform:uppercase;
-  color:var(--mint);
-  -webkit-text-stroke:2.4px var(--mint-deep);
-  paint-order:stroke fill;
-  transform:rotate(-2.2deg);
-  text-shadow:3px 3px 0 rgba(6,59,43,.16);
+  flex:1 1 auto;
+  min-width:0;
+  margin:2px 0 0 -6px;
+}
+.logotype img{
+  display:block;
+  width:100%;
+  height:auto;
+  transform:rotate(-1.6deg);
 }
 
 .seal{
@@ -109,7 +104,7 @@ a{color:inherit;text-decoration:none}
   max-width:200px;
   height:9px;
   margin:4px 0 0 -2px;
-  color:var(--mint-deep);
+  color:var(--seal);
   overflow:visible;
 }
 
@@ -177,10 +172,13 @@ a{color:inherit;text-decoration:none}
 }
 
 .row--ep{
-  background:var(--mint);
+  background:var(--ink);
+  color:var(--paper);
   font-size:14.5px;
 }
-.row--ep:hover,.row--ep:active{background:var(--ink);color:var(--mint)}
+.row--ep .badge{border-color:var(--paper)}
+.row--ep .txt small{opacity:.72}
+.row--ep:hover,.row--ep:active{background:var(--seal);color:#fff9f2}
 
 .badge{
   flex:0 0 auto;
@@ -219,7 +217,7 @@ a{color:inherit;text-decoration:none}
   <main class="card">
 
     <div class="head">
-      <h1 class="logotype">NECTA</h1>
+      <h1 class="logotype"><img src="assets/logos/necta-logo.png?v=1" width="1200" height="598" alt="NECTA"></h1>
       <span class="seal" aria-label="넥타">넥타</span>
     </div>
 
