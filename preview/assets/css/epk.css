@@ -352,8 +352,10 @@ html[data-lang="kr"] .en{display:none}
 
 /* ---------- bio ---------- */
 
+.bio-text{padding-right:0}
 .bio-text p{
   margin:0;
+  max-width:60ch;
   font-size:clamp(14px,1.4vw,15.5px);
   line-height:1.85;
   font-weight:400;
@@ -566,7 +568,7 @@ html[data-lang="kr"] .en{display:none}
 .contact-grid{
   display:grid;
   gap:8px;
-  margin-top:16px;
+  margin-top:20px;
 }
 @media (min-width:600px){
   .contact-grid{grid-template-columns:1fr 1fr}
