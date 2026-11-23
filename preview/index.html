@@ -30,6 +30,10 @@ body{
   margin:0;
   padding:32px 16px 46px;
   min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
   background:var(--pink);
   background-image:linear-gradient(168deg,#f1576d 0%,#ea5a6c 46%,#e85d6f 100%);
   color:var(--ink);
@@ -83,7 +87,7 @@ a{color:inherit;text-decoration:none}
 .seal{
   flex:0 0 auto;
   margin-top:2px;
-  padding:8px 6px;
+  padding:8px 7px;
   writing-mode:vertical-rl;
   text-orientation:upright;
   background:var(--seal);
@@ -92,8 +96,8 @@ a{color:inherit;text-decoration:none}
   border-radius:2px;
   font-family:var(--serif);
   font-weight:700;
-  font-size:16px;
-  line-height:1.08;
+  font-size:17px;
+  line-height:1.1;
   letter-spacing:.08em;
   transform:rotate(3deg);
   box-shadow:2px 2px 0 rgba(17,17,17,.28);
