@@ -26,6 +26,7 @@
 html,body{overflow-x:clip}
 html{-webkit-text-size-adjust:100%}
 body{
+  position:relative;
   margin:0;
   min-height:100vh;
   background:
@@ -44,7 +45,7 @@ a{color:inherit;text-decoration:none}
 
 /* ---------- press grain over the whole sheet ---------- */
 .grain{
-  position:fixed;
+  position:absolute;
   inset:0;
   z-index:60;
   pointer-events:none;
