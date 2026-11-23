@@ -3,363 +3,271 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>NECTA</title>
+<title>NECTA — artist file 05</title>
 <meta name="description" content="NECTA — Seoul-based electronic pop artist.">
 <meta name="robots" content="noindex, nofollow">
-<meta name="theme-color" content="#e85d6f">
+<meta name="theme-color" content="#0b0b0d">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;600;800;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
 :root{
-  --pink:#e85d6f;
-  --hot:#ff2d78;
-  --ink:#0f0f10;
-  --paper:#f4ecdf;
-  --paper2:#fff8ee;
-  --disp:"Archivo Black","Arial Black",system-ui,sans-serif;
-  --mono:"Space Mono",ui-monospace,"SFMono-Regular",monospace;
+  --bg:#0b0b0d;
+  --ink:#f4f4f1;
+  --dim:#8b8b91;
+  --line:#26262b;
+  --pink:#ff2d78;
+  --steel:#c9c9cd;
+  --sans:"Inter Tight","Helvetica Neue",Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
 }
 
 *,*::before,*::after{box-sizing:border-box}
 html,body{overflow-x:clip}
 html{-webkit-text-size-adjust:100%}
 body{
-  position:relative;
   margin:0;
+  position:relative;
   min-height:100vh;
-  background:
-    radial-gradient(110% 70% at 84% -6%, #f26e80 0%, rgba(242,110,128,0) 56%),
-    radial-gradient(90% 60% at 6% 104%, #d8485c 0%, rgba(216,72,92,0) 60%),
-    var(--pink);
+  background:var(--bg);
   color:var(--ink);
   font-family:var(--mono);
   -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
 }
 img{max-width:100%;height:auto;display:block}
 a{color:inherit;text-decoration:none}
-::selection{background:var(--ink);color:var(--hot)}
-:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+::selection{background:var(--pink);color:#0b0b0d}
+:focus-visible{outline:2px solid var(--pink);outline-offset:2px}
 
-/* ---------- press grain over the whole sheet ---------- */
+/* film grain + vignette */
 .grain{
   position:absolute;
   inset:0;
-  z-index:60;
+  z-index:40;
   pointer-events:none;
-  opacity:.55;
-  mix-blend-mode:multiply;
+  opacity:.22;
+  mix-blend-mode:overlay;
   background-image:url("assets/grain.svg");
-  background-size:200px 200px;
+  background-size:180px 180px;
 }
 .grain::after{
   content:"";
   position:absolute;
   inset:0;
-  background-image:radial-gradient(rgba(15,15,16,.6) .65px, transparent .75px);
-  background-size:4px 4px;
-  opacity:.12;
+  background:radial-gradient(120% 90% at 50% 0%, rgba(0,0,0,0) 45%, rgba(0,0,0,.55) 100%);
+  mix-blend-mode:multiply;
 }
 
-/* ---------- the sheet ---------- */
+/* ---------- frame ---------- */
 .page{
   position:relative;
   width:100%;
-  max-width:660px;
+  max-width:680px;
   margin:0 auto;
-  padding:18px 20px 28px;
+  padding:0 20px 34px;
 }
 
-/* ---------- paper header ---------- */
-.topbar{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-start;
-  gap:12px;
-  font:700 7.5px/1.35 var(--mono);
-  letter-spacing:.2em;
-  text-transform:uppercase;
+/* ---------- head ---------- */
+.head{
+  display:grid;
+  gap:0;
+  border-bottom:1px solid var(--line);
+  padding-top:18px;
 }
-.topbar span:first-child{transform:rotate(-1.4deg);transform-origin:0 0}
-.topbar span:last-child{text-align:right;transform:rotate(2.2deg);transform-origin:100% 0}
-.topbar b{font-size:12px;letter-spacing:.05em;display:block;line-height:1.1}
-
-/* ---------- masthead ---------- */
-.mast{
-  position:relative;
-  z-index:3;
-  margin:10px 0 0;
-}
-.wordmark{
-  width:100%;
-  height:auto;
-  transform:rotate(-2.8deg);
-  transform-origin:50% 62%;
-}
-
-/* ---------- photo ---------- */
-.shot{
-  position:relative;
-  z-index:1;
-  width:calc(100% + 14px);
-  margin:-13px 0 0 -10px;
-  padding:7px 7px 18px;
-  background:var(--paper2);
-  border:1.5px solid var(--ink);
-  box-shadow:7px 7px 0 var(--ink);
-  transform:rotate(1.5deg);
-}
-.shot > img{
-  width:100%;
-  height:auto;
-  border:1px solid rgba(15,15,16,.55);
-  filter:saturate(1.04) contrast(1.02);
-}
-.shot figcaption{
-  display:flex;
-  justify-content:flex-end;
-  gap:8px;
-  margin:7px 1px 0;
-  font:400 7.5px/1.2 var(--mono);
-  letter-spacing:.18em;
-  text-transform:uppercase;
-  opacity:.82;
-}
-
-/* black sticker over the photo's bottom-left corner */
-.tab{
-  position:absolute;
-  z-index:4;
-  left:5px;
-  bottom:-14px;
-  padding:7px 9px 6px;
-  background:var(--ink);
-  color:var(--paper);
-  font:700 8px/1.15 var(--mono);
-  letter-spacing:.14em;
-  text-transform:uppercase;
-  transform:rotate(-6deg);
-  box-shadow:2px 2px 0 rgba(15,15,16,.3);
-}
-.tab i{display:block;font-style:normal;color:var(--hot);font-size:6.5px;letter-spacing:.22em;margin-top:2px}
-
-/* vertical city stamp riding the photo's right edge */
-.stamp{
-  position:absolute;
-  z-index:4;
-  right:-2px;
-  top:34%;
-  display:flex;
-  align-items:center;
-  gap:5px;
-  padding:9px 5px;
-  background:var(--ink);
-  color:var(--paper);
-  writing-mode:vertical-rl;
-  font:700 8px/1 var(--mono);
-  letter-spacing:.28em;
-  text-transform:uppercase;
-  transform:rotate(1.6deg);
-}
-.stamp svg{width:9px;height:9px;flex:0 0 auto}
-
-/* slanted rule that cuts the sheet */
-.rule{
-  position:relative;
-  z-index:1;
-  height:2px;
-  width:88%;
-  margin:22px 0 0 6%;
-  background:var(--ink);
-  transform:rotate(-4.4deg);
-}
-.cross{
-  position:absolute;
-  z-index:2;
-  right:8%;
-  margin-top:-9px;
-  font:400 13px/1 var(--mono);
-  opacity:.8;
-}
-
-/* ---------- links ---------- */
-.links{
-  position:relative;
-  z-index:2;
-  display:flex;
-  flex-direction:column;
-  margin:20px 0 0;
-}
-.ln{
-  display:flex;
-  align-items:center;
-  min-height:48px;
-  transition:transform .09s ease, box-shadow .09s ease, background .09s ease, color .09s ease;
-}
-
-/* 01 — big black sticker, crooked, wider than everything else */
-.ln--ep{
-  width:97%;
-  margin-left:-4px;
-  padding:11px 13px 12px;
-  gap:11px;
-  background:var(--ink);
-  color:var(--paper2);
-  transform:rotate(-3.1deg);
-  box-shadow:5px 5px 0 rgba(15,15,16,.22);
-}
-.ln--ep .star{font-size:17px;line-height:1;color:var(--hot);flex:0 0 auto}
-.ln--ep .txt{flex:1 1 auto;min-width:0;display:flex;flex-direction:column;gap:2px}
-.ln--ep .kicker{
-  font:700 8px/1 var(--mono);
-  letter-spacing:.24em;
-  text-transform:uppercase;
-  color:var(--hot);
-}
-.ln--ep .title{
-  font-family:var(--disp);
-  font-size:clamp(17px,5vw,22px);
-  line-height:.96;
-  letter-spacing:-.015em;
-  text-transform:uppercase;
-}
-.ln--ep .arrow{font:700 17px/1 var(--mono);flex:0 0 auto}
-.ln--ep:hover,.ln--ep:active{background:#1b1b1f;transform:rotate(-3.1deg) translate(-1px,-2px);box-shadow:7px 8px 0 rgba(15,15,16,.26)}
-
-/* 02 — thin editorial label pushed to the right, rules only */
-.ln--lt{
-  width:76%;
-  margin:20px -2px 0 auto;
-  padding:10px 2px 9px;
-  justify-content:space-between;
-  gap:8px;
-  border-top:2.5px solid var(--ink);
-  border-bottom:1px solid var(--ink);
-  transform:rotate(.9deg);
-}
-.ln--lt .txt{display:flex;flex-direction:column;gap:3px;min-width:0}
-.ln--lt b{
-  font-family:var(--disp);
-  font-size:13.5px;
-  line-height:1;
-  letter-spacing:.05em;
-  text-transform:uppercase;
-}
-.ln--lt small{font:400 7px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;opacity:.72}
-.ln--lt .arrow{font:700 14px/1 var(--mono)}
-.ln--lt:hover,.ln--lt:active{background:rgba(255,248,238,.3);transform:rotate(.9deg) translateY(-1px)}
-
-/* 03 — small paper tag dropped to the left, hard outline */
-.ln--yt{
-  width:60%;
-  margin:16px 0 0 5%;
-  padding:9px 10px;
-  gap:8px;
-  background:var(--paper);
-  border:1.5px solid var(--ink);
-  box-shadow:3px 3px 0 var(--ink);
-  transform:rotate(-3.6deg);
-}
-.ln--yt .play{
-  flex:0 0 auto;
-  width:18px;height:18px;
-  display:grid;place-items:center;
-  background:var(--ink);
-  color:var(--paper);
-  font-size:7px;
-  line-height:1;
-}
-.ln--yt .txt{display:flex;flex-direction:column;gap:2px;flex:1 1 auto;min-width:0}
-.ln--yt b{font-family:var(--disp);font-size:13.5px;line-height:1;letter-spacing:.02em;text-transform:uppercase}
-.ln--yt small{font:400 6.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;opacity:.66}
-.ln--yt .arrow{font:700 12px/1 var(--mono);flex:0 0 auto}
-.ln--yt:hover,.ln--yt:active{background:var(--paper2);transform:rotate(-3.6deg) translate(-1px,-2px);box-shadow:5px 5px 0 var(--ink)}
-
-/* 04 — warm paper strip for the mail */
-.ln--mail{
-  width:97%;
-  margin:18px 0 0 1%;
-  padding:12px 12px;
+.head-row{
+  display:grid;
+  grid-template-columns:1fr auto;
+  align-items:baseline;
   gap:10px;
-  background:var(--paper2);
-  border:1.5px solid var(--ink);
-  transform:rotate(1.8deg);
-  box-shadow:-3px 3px 0 rgba(15,15,16,.85);
+  padding-bottom:10px;
 }
-.ln--mail .addr{
-  font:700 12px/1.3 var(--mono);
-  letter-spacing:0;
-  text-decoration:underline;
-  text-decoration-thickness:1.5px;
-  text-underline-offset:3px;
-  flex:0 1 auto;
-  min-width:0;
-  overflow-wrap:anywhere;
+.head-row--2{
+  padding-bottom:12px;
+  color:var(--dim);
 }
-.ln--mail .arrow{font:700 13px/1 var(--mono);flex:0 0 auto;margin-left:auto}
-.ln--mail:hover,.ln--mail:active{background:#fff;transform:rotate(1.8deg) translate(1px,-1px)}
-
-/* small printed fragments in the gaps */
-.frag{
-  display:flex;
-  align-items:center;
-  gap:5px;
-  font:400 7.5px/1.3 var(--mono);
-  letter-spacing:.2em;
+.brand{
+  font:600 10px/1 var(--mono);
+  letter-spacing:.22em;
   text-transform:uppercase;
+  color:var(--ink);
 }
-.frag svg{width:9px;height:9px;flex:0 0 auto}
-.frag--coords{margin:13px 0 0 3px;transform:rotate(-1deg);opacity:.9}
-.frag--kr{
-  position:relative;
-  z-index:3;
-  justify-content:flex-end;
-  margin:16px 2px 0 0;
-  transform:rotate(-2deg);
-  opacity:.72;
-}
-
-/* ---------- footer ---------- */
-.foot{
-  position:relative;
-  z-index:2;
-  display:flex;
-  align-items:flex-end;
-  gap:10px;
-  margin:16px 0 0;
-  padding-left:1px;
-  transform:rotate(-.9deg);
-}
-.foot img.barcode{width:100px;height:auto;opacity:.95;filter:contrast(1.15)}
-.foot .col{
-  font:400 7px/1.5 var(--mono);
+.brand i{color:var(--pink);font-style:normal}
+.head .meta{
+  font:500 8.5px/1.4 var(--mono);
   letter-spacing:.16em;
   text-transform:uppercase;
-  padding-bottom:1px;
+  color:var(--dim);
+  text-align:right;
 }
-.foot .col b{font-size:8.5px;letter-spacing:.1em}
-.foot .scan{margin-left:auto;font-size:6.5px;letter-spacing:.2em;opacity:.75;text-align:right;line-height:1.5}
+.head .meta b{color:var(--ink);font-weight:500}
+.head .meta span+span{margin-left:12px}
+
+/* ---------- masthead ---------- */
+.mark{
+  padding:22px 0 18px;
+  border-bottom:1px solid var(--line);
+}
+.mark img{
+  width:100%;
+  height:auto;
+  filter:contrast(1.04);
+}
+.mark-line{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  gap:10px;
+  padding-top:14px;
+  font:500 8px/1.2 var(--mono);
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+
+/* ---------- photo, frameless ---------- */
+.photo{
+  position:relative;
+  margin:0 -20px;
+  background:#141417;
+  border-top:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+}
+.photo img{
+  width:100%;
+  height:auto;
+  display:block;
+}
+.photo::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  bottom:0;
+  width:3px;
+  background:var(--pink);
+  z-index:2;
+}
+.caption{
+  display:grid;
+  grid-template-columns:auto 1fr auto;
+  gap:10px;
+  align-items:baseline;
+  padding:11px 0 0;
+  font:500 7.5px/1.4 var(--mono);
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.caption span:nth-child(2){text-align:center}
+.caption span:last-child{text-align:right;color:var(--ink)}
+
+/* ---------- index of links ---------- */
+.index{
+  margin:26px 0 0;
+  border-top:1px solid var(--pink);
+}
+.row{
+  display:grid;
+  grid-template-columns:40px 1fr 20px;
+  align-items:center;
+  column-gap:10px;
+  min-height:58px;
+  padding:12px 2px;
+  border-bottom:1px solid var(--line);
+  transition:background .12s ease, color .12s ease;
+}
+.row .num{
+  font:500 9px/1 var(--mono);
+  letter-spacing:.08em;
+  color:var(--dim);
+  align-self:center;
+}
+.row .label{
+  font-family:var(--sans);
+  font-weight:700;
+  font-size:15.5px;
+  line-height:1.15;
+  letter-spacing:.015em;
+  text-transform:uppercase;
+  min-width:0;
+}
+.row .label em{
+  display:block;
+  font:500 7.5px/1 var(--mono);
+  font-style:normal;
+  letter-spacing:.2em;
+  color:var(--dim);
+  margin-top:7px;
+  text-transform:uppercase;
+}
+.row .arrow{
+  font:500 13px/1 var(--mono);
+  color:var(--dim);
+  justify-self:end;
+  transition:color .12s ease, transform .12s ease;
+}
+.row:hover,.row:focus-visible{
+  background:#151519;
+}
+.row:hover .label,.row:focus-visible .label{color:var(--pink)}
+.row:hover .arrow,.row:focus-visible .arrow{color:var(--pink);transform:translate(1px,-1px)}
+
+/* lead row: the record, set large */
+.row--lead{
+  grid-template-columns:40px 1fr 20px;
+  min-height:96px;
+  padding:18px 2px 19px;
+}
+.row--lead .label{
+  font-weight:900;
+  font-size:clamp(25px,7.6vw,38px);
+  line-height:.92;
+  letter-spacing:-.035em;
+}
+.row--lead .label em{
+  margin-top:9px;
+}
+.row--lead .num{
+  align-self:start;
+  margin-top:4px;
+  background:var(--pink);
+  color:#0b0b0d;
+  font-weight:600;
+  letter-spacing:.06em;
+  padding:4px 4px 3px;
+  justify-self:start;
+}
+
+/* ---------- foot ---------- */
+.foot{
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:6px 12px;
+  align-items:baseline;
+  margin-top:26px;
+  font:500 7.5px/1.5 var(--mono);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+  color:var(--dim);
+}
+.foot .right{text-align:right}
+.foot b{color:var(--ink);font-weight:500}
 
 @media (max-width:400px){
-  .page{padding:16px 18px 24px}
-  .ln--ep .title{font-size:17.5px}
-  .ln--mail .addr{font-size:11.5px}
-  .shot{width:calc(100% + 12px);margin-left:-8px}
-  .topbar{font-size:7px}
+  .page{padding:0 18px 30px}
+  .photo{margin:0 -18px}
+  .row--lead .label{font-size:clamp(24px,7.4vw,34px)}
 }
 
-@media (min-width:640px){
-  .page{padding:26px 34px 46px}
-  .ln--ep .title{font-size:24px}
-  .ln--mail .addr{font-size:14px}
-  .topbar{font-size:8.5px}
-  .topbar b{font-size:14px}
-}
-
-@media (prefers-reduced-motion:reduce){
-  .ln{transition:none}
+@media (min-width:680px){
+  .page{padding:0 34px 46px}
+  .row--lead{min-height:112px}
+  .row.row--lead .label{font-size:44px}
+  .photo{margin:0 -34px}
+  .mark{padding:34px 0 26px}
+  .row .label{font-size:17px}
+  .foot{font-size:8px}
 }
 </style>
 </head>
@@ -368,70 +276,67 @@ a{color:inherit;text-decoration:none}
 
 <main class="page">
 
-  <header class="topbar">
-    <span>NECTA — official<br>artist file</span>
-    <span><b>№ 05</b>seoul · 2026</span>
+  <header class="head">
+    <div class="head-row">
+      <span class="brand">NECTA<i>®</i></span>
+      <span class="meta"><span>Artist file <b>05</b></span><span>2027</span></span>
+    </div>
+    <div class="head-row head-row--2">
+      <span class="meta" style="text-align:left">Seoul, South Korea</span>
+      <span class="meta">37.5796°N / 126.9860°E</span>
+    </div>
   </header>
 
-  <h1 class="mast">
-    <img class="wordmark" src="assets/logos/necta-mag.png?v=10" width="1200" height="487" alt="NECTA">
+  <h1 class="mark">
+    <img src="assets/logos/necta-berlin.png?v=11" width="1400" height="411" alt="NECTA">
   </h1>
 
-  <figure class="shot">
-    <img src="assets/photos/necta-main-900.jpg?v=10"
-         srcset="assets/photos/necta-main-900.jpg?v=10 900w, assets/photos/necta-main-1400.jpg?v=10 1400w"
-         sizes="(max-width: 640px) calc(100vw - 34px), 540px"
+  <figure class="photo">
+    <img src="assets/photos/necta-main-900.jpg?v=11"
+         srcset="assets/photos/necta-main-900.jpg?v=11 900w, assets/photos/necta-main-1400.jpg?v=11 1400w"
+         sizes="(max-width: 680px) 100vw, 680px"
          width="900" height="675"
          alt="NECTA, blunt fringe and patterned blouse, looking into the camera"
          fetchpriority="high">
-    <figcaption>img_8872 / seoul / 4:3</figcaption>
-    <span class="tab" aria-hidden="true">new ep<i>out now</i></span>
-    <span class="stamp" aria-hidden="true">seoul
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><circle cx="12" cy="12" r="6"/><path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4"/></svg>
-    </span>
   </figure>
 
-  <hr class="rule">
-  <span class="cross" aria-hidden="true">+</span>
+  <p class="caption">
+    <span>Photograph — Seoul</span>
+    <span>04:3 / 2026</span>
+    <span>File 05</span>
+  </p>
 
-  <nav class="links" aria-label="NECTA links">
-    <a class="ln ln--ep" href="https://9necta9.github.io/" target="_blank" rel="noopener">
-      <span class="star" aria-hidden="true">★</span>
-      <span class="txt">
-        <span class="kicker">2026 / single</span>
-        <span class="title">Gotta fix my bangs</span>
-      </span>
-      <span class="arrow" aria-hidden="true">→</span>
-    </a>
-
-    <span class="frag frag--coords" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><circle cx="12" cy="12" r="6"/><path d="M12 1.5v4M12 18.5v4M1.5 12h4M18.5 12h4"/></svg>
-      37.5796° n / 126.9860° e
-    </span>
-
-    <a class="ln ln--lt" href="https://linktr.ee/9necta9" target="_blank" rel="noopener">
-      <span class="txt"><b>Linktree</b><small>music &amp; streaming</small></span>
+  <nav class="index" aria-label="NECTA links">
+    <a class="row row--lead" href="https://9necta9.github.io/" target="_blank" rel="noopener">
+      <span class="num">01</span>
+      <span class="label">Gotta fix my bangs<em>New EP — out now</em></span>
       <span class="arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="ln ln--yt" href="https://youtu.be/K1bzSSEGrGY" target="_blank" rel="noopener">
-      <span class="play" aria-hidden="true">▶</span>
-      <span class="txt"><b>YouTube</b><small>video</small></span>
+    <a class="row" href="https://linktr.ee/9necta9" target="_blank" rel="noopener">
+      <span class="num">02</span>
+      <span class="label">Linktree<em>Music &amp; streaming</em></span>
       <span class="arrow" aria-hidden="true">↗</span>
     </a>
 
-    <a class="ln ln--mail" href="mailto:monnyu@naver.com">
-      <span class="addr">monnyu@naver.com</span>
+    <a class="row" href="https://youtu.be/K1bzSSEGrGY" target="_blank" rel="noopener">
+      <span class="num">03</span>
+      <span class="label">YouTube<em>Video</em></span>
+      <span class="arrow" aria-hidden="true">↗</span>
+    </a>
+
+    <a class="row" href="mailto:monnyu@naver.com">
+      <span class="num">04</span>
+      <span class="label">monnyu@naver.com<em>Contact — booking</em></span>
       <span class="arrow" aria-hidden="true">↗</span>
     </a>
   </nav>
 
-  <p class="frag frag--kr" aria-hidden="true">넥타 · ネクタ · 首爾</p>
-
   <footer class="foot">
-    <img class="barcode" src="assets/barcode.svg?v=10" width="200" height="44" alt="">
-    <span class="col"><b>NECTA</b><br>© 2027 · @9necta9<br>printed in seoul</span>
-    <span class="scan">scan<br>me</span>
+    <span>© 2027 NECTA — <b>@9necta9</b></span>
+    <span class="right">Printed in Seoul</span>
+    <span>Electronic press kit / 05</span>
+    <span class="right">No. 05 / 05</span>
   </footer>
 
 </main>
